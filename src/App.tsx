@@ -20,6 +20,22 @@ import TimestampConverter from './pages/tools/TimestampConverter'
 import MarkdownToHtml from './pages/tools/MarkdownToHtml'
 import ImageToBase64 from './pages/tools/ImageToBase64'
 import DwgViewer from './pages/tools/DwgViewer'
+import ImageCompressor from './pages/tools/ImageCompressor'
+import ImageResizer from './pages/tools/ImageResizer'
+import ImageFormatConverter from './pages/tools/ImageFormatConverter'
+import PdfViewer from './pages/tools/PdfViewer'
+import PdfMerge from './pages/tools/PdfMerge'
+import PdfSplit from './pages/tools/PdfSplit'
+import TextRepeater from './pages/tools/TextRepeater'
+import FindReplace from './pages/tools/FindReplace'
+import TextDiff from './pages/tools/TextDiff'
+import RegexTester from './pages/tools/RegexTester'
+import CsvToJson from './pages/tools/CsvToJson'
+import SqlFormatter from './pages/tools/SqlFormatter'
+import UnitConverter from './pages/tools/UnitConverter'
+import AgeCalculator from './pages/tools/AgeCalculator'
+import BmiCalculator from './pages/tools/BmiCalculator'
+import LoanCalculator from './pages/tools/LoanCalculator'
 import Blog from './pages/blog/Blog'
 import BlogPost from './pages/blog/BlogPost'
 import About from './pages/About'
@@ -51,6 +67,22 @@ export default function App() {
           <Route path="tools/markdown-to-html" element={<MarkdownToHtml />} />
           <Route path="tools/image-to-base64" element={<ImageToBase64 />} />
           <Route path="tools/dwg-viewer" element={<DwgViewer />} />
+          <Route path="tools/image-compressor" element={<ImageCompressor />} />
+          <Route path="tools/image-resizer" element={<ImageResizer />} />
+          <Route path="tools/image-format" element={<ImageFormatConverter />} />
+          <Route path="tools/pdf-viewer" element={<PdfViewer />} />
+          <Route path="tools/pdf-merge" element={<PdfMerge />} />
+          <Route path="tools/pdf-split" element={<PdfSplit />} />
+          <Route path="tools/text-repeater" element={<TextRepeater />} />
+          <Route path="tools/find-replace" element={<FindReplace />} />
+          <Route path="tools/text-diff" element={<TextDiff />} />
+          <Route path="tools/regex-tester" element={<RegexTester />} />
+          <Route path="tools/csv-to-json" element={<CsvToJson />} />
+          <Route path="tools/sql-formatter" element={<SqlFormatter />} />
+          <Route path="tools/unit-converter" element={<UnitConverter />} />
+          <Route path="tools/age-calculator" element={<AgeCalculator />} />
+          <Route path="tools/bmi-calculator" element={<BmiCalculator />} />
+          <Route path="tools/loan-calculator" element={<LoanCalculator />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="about" element={<About />} />
