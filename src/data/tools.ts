@@ -1,4 +1,4 @@
-import { Calculator, FileJson, Palette, KeyRound, Binary } from 'lucide-react'
+import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint } from 'lucide-react'
 
 export interface Tool {
   name: string
@@ -43,5 +43,40 @@ export const tools: Tool[] = [
     description: 'Encode and decode Base64 strings quickly.',
     icon: Binary,
     category: 'Developer',
+  },
+  {
+    name: 'Text Case Converter',
+    slug: 'text-case',
+    description: 'Convert text to UPPERCASE, lowercase, Title Case, camelCase, and more.',
+    icon: CaseUpper,
+    category: 'Text',
+  },
+  {
+    name: 'URL Encoder / Decoder',
+    slug: 'url-encoder',
+    description: 'Encode and decode URL strings and parameters.',
+    icon: Link2,
+    category: 'Developer',
+  },
+  {
+    name: 'Markdown Preview',
+    slug: 'markdown-preview',
+    description: 'Write markdown and see live rendered preview.',
+    icon: FileText,
+    category: 'Text',
+  },
+  {
+    name: 'Lorem Ipsum Generator',
+    slug: 'lorem-ipsum',
+    description: 'Generate placeholder text for designs and mockups.',
+    icon: FileStack,
+    category: 'Text',
+  },
+  {
+    name: 'Hash Generator',
+    slug: 'hash-generator',
+    description: 'Generate SHA-1, SHA-256, SHA-384, SHA-512 hashes.',
+    icon: Fingerprint,
+    category: 'Security',
   },
 ]

@@ -1,0 +1,80 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { Fingerprint, Copy, Check } from 'lucide-react'
+
+async function hashMessage(message: string, algorithm: string): Promise<string> {
+  const encoder = new TextEncoder()
+  const data = encoder.encode(message)
+  const hashBuffer = await crypto.subtle.digest(algorithm, data)
+  const hashArray = Array.from(new Uint8Array(hashBuffer))
+  return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
+}
+
+export default function HashGenerator() {
+  const [input, setInput] = useState('')
+  const [hashes, setHashes] = useState<Record<string, string>>({})
+  const [copied, setCopied] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const generate = async () => {
+    if (!input) return
+    setLoading(true)
+    const algorithms = ['SHA-1', 'SHA-256', 'SHA-384', 'SHA-512']
+    const results: Record<string, string> = {}
+    for (const algo of algorithms) {
+      results[algo] = await hashMessage(input, algo)
+    }
+    setHashes(results)
+    setLoading(false)
+  }
+
+  const handleCopy = (value: string, label: string) => {
+    navigator.clipboard.writeText(value)
+    setCopied(label)
+    setTimeout(() => setCopied(''), 2000)
+  }
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+          <Fingerprint className="w-5 h-5 text-indigo-600" />
+        </div>
+        <h1 className="text-3xl font-bold text-gray-900">Hash Generator</h1>
+      </div>
+      <p className="text-gray-600 mb-8">Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text.</p>
+
+      <div className="bg-white rounded-xl border border-gray-200 p-6">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Input Text</label>
+        <textarea
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Enter text to hash..."
+          className="w-full h-32 p-4 border border-gray-300 rounded-xl text-sm font-mono resize-y focus:ring-2 focus:ring-indigo-500 outline-none"
+        />
+
+        <button onClick={generate} disabled={!input || loading} className="mt-4 bg-indigo-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50">
+          {loading ? 'Generating...' : 'Generate Hashes'}
+        </button>
+
+        {Object.keys(hashes).length > 0 && (
+          <div className="mt-6 space-y-3">
+            {Object.entries(hashes).map(([algo, hash]) => (
+              <div key={algo} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                <div className="w-20 text-xs font-medium text-gray-500 flex-shrink-0">{algo}</div>
+                <div className="flex-1 font-mono text-xs break-all text-gray-800">{hash}</div>
+                <button onClick={() => handleCopy(hash, algo)} className="p-1.5 text-gray-400 hover:text-indigo-600 flex-shrink-0">
+                  {copied === algo ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="mt-8 text-center">
+        <Link to="/" className="text-indigo-600 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
+      </div>
+    </div>
+  )
+}
