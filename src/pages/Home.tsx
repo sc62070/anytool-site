@@ -1,12 +1,41 @@
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { tools } from '../data/tools'
 import { getViews } from '../data/views'
 import { blogPosts } from '../data/blog'
-import { ArrowRight, Calendar, Clock, ArrowUpRight, Zap, Shield, Globe } from 'lucide-react'
+import { ArrowRight, Calendar, Clock, ArrowUpRight, Zap, Shield, Globe, Search, X } from 'lucide-react'
+
+const categories = ['All', ...Array.from(new Set(tools.map(t => t.category)))]
 
 export default function Home() {
+  const [search, setSearch] = useState('')
+  const [activeCategory, setActiveCategory] = useState('All')
+
   const views = getViews()
-  const sortedTools = [...tools].sort((a, b) => (views[b.slug] || 0) - (views[a.slug] || 0))
+
+  const filteredTools = useMemo(() => {
+    let result = [...tools]
+
+    if (activeCategory !== 'All') {
+      result = result.filter(t => t.category === activeCategory)
+    }
+
+    if (search.trim()) {
+      const q = search.toLowerCase()
+      result = result.filter(t =>
+        t.name.toLowerCase().includes(q) ||
+        t.description.toLowerCase().includes(q) ||
+        t.category.toLowerCase().includes(q)
+      )
+    }
+
+    // Sort by views only when no search/filter
+    if (!search.trim() && activeCategory === 'All') {
+      result.sort((a, b) => (views[b.slug] || 0) - (views[a.slug] || 0))
+    }
+
+    return result
+  }, [search, activeCategory, views])
 
   return (
     <div>
@@ -84,43 +113,90 @@ export default function Home() {
 
       {/* Tools Grid */}
       <section id="tools" className="max-w-6xl mx-auto px-4 py-24">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="text-sm font-semibold text-violet-600 dark:text-violet-400 tracking-wider uppercase">Everything you need</span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mt-3 mb-4 tracking-tight">Our Tools</h2>
           <p className="text-gray-500 dark:text-gray-400 max-w-lg mx-auto text-lg">Pick a tool, get your answer, close the tab. No fluff, no accounts, no data collection.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {sortedTools.map((tool) => {
-            const Icon = tool.icon
-            return (
-              <Link
-                key={tool.slug}
-                to={`/tools/${tool.slug}`}
-                className="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:border-violet-300 dark:hover:border-violet-500/50 transition-all duration-300 no-underline overflow-hidden"
+        {/* Search + Filters */}
+        <div className="mb-8 space-y-4">
+          {/* Search */}
+          <div className="relative max-w-md mx-auto">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search tools..."
+              className="w-full pl-11 pr-10 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none transition-all text-gray-900 dark:text-white placeholder:text-gray-400"
+            />
+            {search && (
+              <button onClick={() => setSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+
+          {/* Categories */}
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
+                  activeCategory === cat
+                    ? 'bg-violet-600 text-white shadow-lg shadow-violet-500/25'
+                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
+                }`}
               >
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                <div className="relative">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-11 h-11 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-500/10 transition-colors duration-300">
-                      <Icon className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-300" />
-                    </div>
-                    <ArrowUpRight className="w-4 h-4 text-gray-300 dark:text-gray-600 group-hover:text-violet-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
-                  </div>
-
-                  <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1.5">{tool.name}</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{tool.description}</p>
-
-                  <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
-                    <span className="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider">{tool.category}</span>
-                  </div>
-                </div>
-              </Link>
-            )
-          })}
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
+
+        {/* Results */}
+        {filteredTools.length === 0 ? (
+          <div className="text-center py-16">
+            <p className="text-gray-500 dark:text-gray-400 text-lg">No tools found matching "{search}"</p>
+            <button onClick={() => { setSearch(''); setActiveCategory('All') }} className="mt-3 text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 text-sm font-medium">
+              Clear filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filteredTools.map((tool) => {
+              const Icon = tool.icon
+              return (
+                <Link
+                  key={tool.slug}
+                  to={`/tools/${tool.slug}`}
+                  className="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:border-violet-300 dark:hover:border-violet-500/50 transition-all duration-300 no-underline overflow-hidden"
+                >
+                  {/* Hover glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  <div className="relative">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="w-11 h-11 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-500/10 transition-colors duration-300">
+                        <Icon className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-300" />
+                      </div>
+                      <ArrowUpRight className="w-4 h-4 text-gray-300 dark:text-gray-600 group-hover:text-violet-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                    </div>
+
+                    <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1.5">{tool.name}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{tool.description}</p>
+
+                    <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                      <span className="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider">{tool.category}</span>
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        )}
       </section>
 
       {/* Latest Blog Posts */}
