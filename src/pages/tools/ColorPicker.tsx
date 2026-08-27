@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
-import { Link } from 'react-router-dom'
 import { Palette, Copy, Check } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 function hexToRgb(hex: string) {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
@@ -27,7 +27,7 @@ function rgbToHsl(r: number, g: number, b: number) {
 }
 
 export default function ColorPicker() {
-  const [hex, setHex] = useState('#6366f1')
+  const [hex, setHex] = useState('#8b5cf6')
   const [copied, setCopied] = useState('')
 
   const rgb = hexToRgb(hex)
@@ -44,16 +44,8 @@ export default function ColorPicker() {
   }, [])
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <Palette className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Color Picker</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Pick any color and get HEX, RGB, and HSL values.</p>
-
-      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8">
+    <ToolLayout title="Color Picker" description="Pick any color and get HEX, RGB, and HSL values." icon={Palette}>
+      <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-8">
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="flex flex-col items-center gap-4">
             <input
@@ -62,42 +54,42 @@ export default function ColorPicker() {
               onChange={(e) => setHex(e.target.value)}
               className="w-32 h-32 rounded-xl cursor-pointer border-2 border-gray-200 dark:border-gray-700"
             />
-            <button onClick={handleRandom} className="text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 font-medium">
+            <button onClick={handleRandom} className="text-sm text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium transition-colors">
               Random Color
             </button>
           </div>
 
           <div className="flex-1 w-full space-y-3">
-            <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+            <div className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
               <div className="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-600" style={{ backgroundColor: hex }} />
               <div className="flex-1">
                 <div className="text-xs text-gray-500 dark:text-gray-400">HEX</div>
-                <div className="font-mono text-sm font-medium">{hex.toUpperCase()}</div>
+                <div className="font-mono text-sm font-medium text-gray-900 dark:text-white">{hex.toUpperCase()}</div>
               </div>
-              <button onClick={() => handleCopy(hex.toUpperCase(), 'hex')} className="p-1.5 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
+              <button onClick={() => handleCopy(hex.toUpperCase(), 'hex')} className="p-1.5 text-gray-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
                 {copied === 'hex' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
 
             {rgb && (
-              <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                 <div className="flex-1">
                   <div className="text-xs text-gray-500 dark:text-gray-400">RGB</div>
-                  <div className="font-mono text-sm font-medium">rgb({rgb.r}, {rgb.g}, {rgb.b})</div>
+                  <div className="font-mono text-sm font-medium text-gray-900 dark:text-white">rgb({rgb.r}, {rgb.g}, {rgb.b})</div>
                 </div>
-                <button onClick={() => handleCopy(`rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, 'rgb')} className="p-1.5 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
+                <button onClick={() => handleCopy(`rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, 'rgb')} className="p-1.5 text-gray-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
                   {copied === 'rgb' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
             )}
 
             {hsl && (
-              <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                 <div className="flex-1">
                   <div className="text-xs text-gray-500 dark:text-gray-400">HSL</div>
-                  <div className="font-mono text-sm font-medium">hsl({hsl.h}, {hsl.s}%, {hsl.l}%)</div>
+                  <div className="font-mono text-sm font-medium text-gray-900 dark:text-white">hsl({hsl.h}, {hsl.s}%, {hsl.l}%)</div>
                 </div>
-                <button onClick={() => handleCopy(`hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`, 'hsl')} className="p-1.5 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
+                <button onClick={() => handleCopy(`hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`, 'hsl')} className="p-1.5 text-gray-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
                   {copied === 'hsl' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
@@ -105,10 +97,6 @@ export default function ColorPicker() {
           </div>
         </div>
       </div>
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }
