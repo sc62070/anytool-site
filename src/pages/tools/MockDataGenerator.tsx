@@ -5,7 +5,6 @@ import ToolLayout from '../../components/ToolLayout'
 export default function MockDataGenerator() {
   const [type, setType] = useState<'name' | 'email' | 'phone' | 'address' | 'sentence' | 'json'>('name')
   const [count, setCount] = useState(5)
-  const [output, setOutput] = useState('')
   const [copied, setCopied] = useState(false)
 
   const firstNames = ['James','Mary','Robert','Patricia','John','Jennifer','Michael','Linda','David','Elizabeth','William','Barbara','Richard','Susan','Joseph','Jessica','Thomas','Sarah','Christopher','Karen','Charles','Lisa','Daniel','Nancy','Matthew','Betty','Anthony','Margaret','Mark','Sandra']

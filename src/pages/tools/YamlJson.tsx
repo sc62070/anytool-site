@@ -23,7 +23,7 @@ export default function YamlJson() {
       const match = line.trim().match(/^([^:]+):\s*(.*)$/)
       if (match) {
         const key = match[1].trim().replace(/^["']|["']$/g, '')
-        let val: unknown = match[2].trim()
+        const val: string = match[2].trim()
         if (val === '' || val === '|') { const obj: Record<string, unknown> = {}; current[key] = obj; stack.push(obj); indentStack.push(indent + 2) }
         else if (val === 'true') current[key] = true
         else if (val === 'false') current[key] = false

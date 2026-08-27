@@ -24,7 +24,6 @@ function jsonToInterface(obj: any, name = 'Root', indent = 0): string {
     for (const [key, value] of Object.entries(obj)) {
       const safeName = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key) ? key : `"${key}"`
       if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-        const nested = jsonToInterface(value, capitalize(key), indent + 1)
         lines.push(`${padInner}  ${safeName}: ${capitalize(key)};`)
       } else if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'object' && value[0] !== null) {
         lines.push(`${padInner}  ${safeName}: ${capitalize(key)}[];`)

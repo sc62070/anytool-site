@@ -14,7 +14,6 @@ export default function TypingSpeed() {
   const [text, setText] = useState('')
   const [userInput, setUserInput] = useState('')
   const [startTime, setStartTime] = useState<number | null>(null)
-  const [endTime, setEndTime] = useState<number | null>(null)
   const [wpm, setWpm] = useState(0)
   const [accuracy, setAccuracy] = useState(0)
   const inputRef = useRef<HTMLTextAreaElement>(null)
