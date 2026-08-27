@@ -1,4 +1,4 @@
-import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image } from 'lucide-react'
+import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage } from 'lucide-react'
 
 export interface Tool {
   name: string
@@ -26,4 +26,5 @@ export const tools: Tool[] = [
   { name: 'Timestamp Converter', slug: 'timestamp', description: 'Convert between Unix timestamps and dates.', icon: Clock, category: 'Developer' },
   { name: 'Markdown to HTML', slug: 'markdown-to-html', description: 'Convert Markdown to clean HTML code.', icon: Code, category: 'Developer' },
   { name: 'Image to Base64', slug: 'image-to-base64', description: 'Convert images to Base64 data URLs.', icon: Image, category: 'Developer' },
+  { name: 'DWG / CAD Viewer', slug: 'dwg-viewer', description: 'View DWG and DXF CAD files directly in your browser.', icon: FileImage, category: 'Office' },
 ]

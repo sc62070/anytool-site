@@ -19,6 +19,7 @@ import TipCalculator from './pages/tools/TipCalculator'
 import TimestampConverter from './pages/tools/TimestampConverter'
 import MarkdownToHtml from './pages/tools/MarkdownToHtml'
 import ImageToBase64 from './pages/tools/ImageToBase64'
+import DwgViewer from './pages/tools/DwgViewer'
 import Blog from './pages/blog/Blog'
 import BlogPost from './pages/blog/BlogPost'
 import About from './pages/About'
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="tools/timestamp" element={<TimestampConverter />} />
           <Route path="tools/markdown-to-html" element={<MarkdownToHtml />} />
           <Route path="tools/image-to-base64" element={<ImageToBase64 />} />
+          <Route path="tools/dwg-viewer" element={<DwgViewer />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="about" element={<About />} />
