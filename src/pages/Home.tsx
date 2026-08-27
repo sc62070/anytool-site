@@ -1,54 +1,118 @@
 import { Link } from 'react-router-dom'
 import { tools } from '../data/tools'
 import { blogPosts } from '../data/blog'
-import { ArrowRight, Calendar, Clock } from 'lucide-react'
+import { ArrowRight, Calendar, Clock, ArrowUpRight, Zap, Shield, Globe } from 'lucide-react'
 
 export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 text-white py-20 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Free Online Tools
-          </h1>
-          <p className="text-lg md:text-xl text-indigo-100 mb-8 max-w-xl mx-auto">
-            Simple, fast, and free tools for developers, writers, and everyone. No sign-up required.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <a href="#tools" className="bg-white text-indigo-700 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors no-underline">
-              Explore Tools
-            </a>
-            <Link to="/blog" className="border border-white/30 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors no-underline">
-              Read the Blog
-            </Link>
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gray-950" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,119,198,0.3),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(236,72,153,0.15),transparent)]" />
+
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
+
+        <div className="relative max-w-6xl mx-auto px-4 py-32">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+              <span className="text-sm text-gray-300">33 tools and counting</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
+              Tools that
+              <span className="block bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">
+                actually work.
+              </span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-xl leading-relaxed">
+              Fast, free, and private. No sign-ups, no tracking, no nonsense.
+              Every tool runs in your browser.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#tools"
+                className="group inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all no-underline"
+              >
+                Explore Tools
+                <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+              <Link
+                to="/blog"
+                className="inline-flex items-center gap-2 border border-white/20 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/5 transition-all no-underline"
+              >
+                Read the Blog
+              </Link>
+            </div>
+          </div>
+
+          {/* Floating badges */}
+          <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2">
+            <div className="relative w-72 h-72">
+              <div className="absolute top-0 right-0 bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-3 animate-bounce" style={{ animationDuration: '3s' }}>
+                <div className="flex items-center gap-2">
+                  <Zap className="w-4 h-4 text-yellow-400" />
+                  <span className="text-sm text-white font-medium">Instant results</span>
+                </div>
+              </div>
+              <div className="absolute top-20 right-16 bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-3 animate-bounce" style={{ animationDuration: '4s', animationDelay: '0.5s' }}>
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-emerald-400" />
+                  <span className="text-sm text-white font-medium">100% private</span>
+                </div>
+              </div>
+              <div className="absolute top-44 right-0 bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-3 animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '1s' }}>
+                <div className="flex items-center gap-2">
+                  <Globe className="w-4 h-4 text-violet-400" />
+                  <span className="text-sm text-white font-medium">Works everywhere</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Tools Grid */}
-      <section id="tools" className="max-w-6xl mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Our Tools</h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-lg mx-auto">Everything you need, all in one place. Each tool is designed to be fast, reliable, and easy to use.</p>
+      <section id="tools" className="max-w-6xl mx-auto px-4 py-24">
+        <div className="text-center mb-16">
+          <span className="text-sm font-semibold text-violet-600 dark:text-violet-400 tracking-wider uppercase">Everything you need</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mt-3 mb-4 tracking-tight">Our Tools</h2>
+          <p className="text-gray-500 dark:text-gray-400 max-w-lg mx-auto text-lg">Pick a tool, get your answer, close the tab. No fluff, no accounts, no data collection.</p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {tools.map((tool) => {
             const Icon = tool.icon
             return (
               <Link
                 key={tool.slug}
                 to={`/tools/${tool.slug}`}
-                className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-300 dark:hover:border-indigo-500 transition-all no-underline"
+                className="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:border-violet-300 dark:hover:border-violet-500/50 transition-all duration-300 no-underline overflow-hidden"
               >
-                <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800/50 transition-colors">
-                  <Icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                {/* Hover glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                <div className="relative">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="w-11 h-11 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center group-hover:bg-violet-100 dark:group-hover:bg-violet-500/10 transition-colors duration-300">
+                      <Icon className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors duration-300" />
+                    </div>
+                    <ArrowUpRight className="w-4 h-4 text-gray-300 dark:text-gray-600 group-hover:text-violet-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                  </div>
+
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1.5">{tool.name}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{tool.description}</p>
+
+                  <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+                    <span className="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider">{tool.category}</span>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{tool.name}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{tool.description}</p>
-                <span className="inline-flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400 group-hover:gap-2 transition-all">
-                  Use Tool <ArrowRight className="w-4 h-4 ml-1" />
-                </span>
               </Link>
             )
           })}
@@ -56,54 +120,67 @@ export default function Home() {
       </section>
 
       {/* Latest Blog Posts */}
-      <section className="bg-white dark:bg-gray-800 py-16 px-4 transition-colors">
+      <section className="bg-gray-50 dark:bg-gray-900/50 py-24 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-end justify-between mb-12">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Latest from the Blog</h2>
-              <p className="text-gray-600 dark:text-gray-400">Tips, guides, and insights about our tools.</p>
+              <span className="text-sm font-semibold text-violet-600 dark:text-violet-400 tracking-wider uppercase">From the blog</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-3 tracking-tight">Latest Posts</h2>
             </div>
-            <Link to="/blog" className="hidden md:inline-flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
-              View All <ArrowRight className="w-4 h-4 ml-1" />
+            <Link to="/blog" className="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 no-underline">
+              View All <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogPosts.slice(0, 3).map((post) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="block bg-gray-50 dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:shadow-md hover:border-indigo-300 transition-all no-underline"
+                className="group block bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700/50 overflow-hidden hover:shadow-xl hover:shadow-gray-200/50 dark:hover:shadow-gray-900/50 hover:border-transparent transition-all duration-300 no-underline"
               >
-                <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 mb-3">
-                  <span className="bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 px-2 py-0.5 rounded-full font-medium">{post.category}</span>
-                  <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{post.date}</span>
-                  <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{post.readTime}</span>
+                <div className="relative h-48 overflow-hidden">
+                  <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <span className="bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-2.5 py-1 rounded-full">{post.category}</span>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">{post.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{post.excerpt}</p>
+                <div className="p-5">
+                  <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 mb-3">
+                    <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{post.date}</span>
+                    <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{post.readTime}</span>
+                  </div>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">{post.title}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">{post.excerpt}</p>
+                </div>
               </Link>
             ))}
           </div>
-          <Link to="/blog" className="md:hidden inline-flex items-center text-sm font-medium text-indigo-600 dark:text-indigo-400 mt-6">
-            View All Posts <ArrowRight className="w-4 h-4 ml-1" />
+          <Link to="/blog" className="md:hidden inline-flex items-center gap-2 text-sm font-semibold text-violet-600 dark:text-violet-400 mt-8">
+            View All Posts <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
 
       {/* Features */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-3">Why AnyTool.site?</h2>
+      <section className="max-w-6xl mx-auto px-4 py-24">
+        <div className="text-center mb-16">
+          <span className="text-sm font-semibold text-violet-600 dark:text-violet-400 tracking-wider uppercase">Why us</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-3 tracking-tight">Built different</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { title: 'Fast & Free', desc: 'All tools run instantly in your browser. No waiting, no fees.' },
-            { title: 'No Sign-Up', desc: 'Just open and use. We respect your time and privacy.' },
-            { title: 'Always Available', desc: 'Works on any device, anywhere. 24/7 uptime.' },
+            { icon: Zap, title: 'Instant & Free', desc: 'Open the page, use the tool, get your answer. No waiting, no fees, no catch.' },
+            { icon: Shield, title: 'Zero Data Collection', desc: 'Everything runs in your browser. Nothing is sent to our servers. Your data stays yours.' },
+            { icon: Globe, title: 'Works Everywhere', desc: 'Desktop, tablet, phone. Any browser, any OS. If it has a screen, it works.' },
           ].map((f) => (
-            <div key={f.title} className="text-center p-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">{f.title}</h3>
-              <p className="text-gray-600 dark:text-gray-400">{f.desc}</p>
+            <div key={f.title} className="relative p-8 rounded-2xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800">
+              <div className="w-12 h-12 bg-violet-100 dark:bg-violet-500/10 rounded-xl flex items-center justify-center mb-5">
+                <f.icon className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{f.title}</h3>
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
