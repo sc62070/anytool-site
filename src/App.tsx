@@ -12,6 +12,13 @@ import UrlEncoder from './pages/tools/UrlEncoder'
 import MarkdownPreview from './pages/tools/MarkdownPreview'
 import LoremIpsum from './pages/tools/LoremIpsum'
 import HashGenerator from './pages/tools/HashGenerator'
+import UuidGenerator from './pages/tools/UuidGenerator'
+import QrCodeGenerator from './pages/tools/QrCodeGenerator'
+import PercentageCalculator from './pages/tools/PercentageCalculator'
+import TipCalculator from './pages/tools/TipCalculator'
+import TimestampConverter from './pages/tools/TimestampConverter'
+import MarkdownToHtml from './pages/tools/MarkdownToHtml'
+import ImageToBase64 from './pages/tools/ImageToBase64'
 import Blog from './pages/blog/Blog'
 import BlogPost from './pages/blog/BlogPost'
 import About from './pages/About'
@@ -35,6 +42,13 @@ export default function App() {
           <Route path="tools/markdown-preview" element={<MarkdownPreview />} />
           <Route path="tools/lorem-ipsum" element={<LoremIpsum />} />
           <Route path="tools/hash-generator" element={<HashGenerator />} />
+          <Route path="tools/uuid-generator" element={<UuidGenerator />} />
+          <Route path="tools/qr-code" element={<QrCodeGenerator />} />
+          <Route path="tools/percentage" element={<PercentageCalculator />} />
+          <Route path="tools/tip-calculator" element={<TipCalculator />} />
+          <Route path="tools/timestamp" element={<TimestampConverter />} />
+          <Route path="tools/markdown-to-html" element={<MarkdownToHtml />} />
+          <Route path="tools/image-to-base64" element={<ImageToBase64 />} />
           <Route path="blog" element={<Blog />} />
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="about" element={<About />} />
