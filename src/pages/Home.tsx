@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom'
 import { tools } from '../data/tools'
+import { getViews } from '../data/views'
 import { blogPosts } from '../data/blog'
 import { ArrowRight, Calendar, Clock, ArrowUpRight, Zap, Shield, Globe } from 'lucide-react'
 
 export default function Home() {
+  const views = getViews()
+  const sortedTools = [...tools].sort((a, b) => (views[b.slug] || 0) - (views[a.slug] || 0))
+
   return (
     <div>
       {/* Hero */}
@@ -87,7 +91,7 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {tools.map((tool) => {
+          {sortedTools.map((tool) => {
             const Icon = tool.icon
             return (
               <Link
