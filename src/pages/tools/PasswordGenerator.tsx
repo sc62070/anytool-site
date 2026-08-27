@@ -52,25 +52,25 @@ export default function PasswordGenerator() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-          <KeyRound className="w-5 h-5 text-indigo-600" />
+        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
+          <KeyRound className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900">Password Generator</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Password Generator</h1>
       </div>
-      <p className="text-gray-600 mb-8">Generate strong, secure passwords with customizable options.</p>
+      <p className="text-gray-600 dark:text-gray-400 mb-8">Generate strong, secure passwords with customizable options.</p>
 
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="flex items-center gap-3 mb-6">
           <input
             readOnly
             value={password}
             placeholder="Click generate to create a password"
-            className="flex-1 p-3 border border-gray-300 rounded-lg font-mono text-lg bg-gray-50"
+            className="flex-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg font-mono text-lg bg-gray-50 dark:bg-gray-700"
           />
-          <button onClick={handleCopy} disabled={!password} className="p-3 text-gray-400 hover:text-indigo-600 disabled:opacity-30">
+          <button onClick={handleCopy} disabled={!password} className="p-3 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 disabled:opacity-30">
             {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
           </button>
-          <button onClick={generate} className="p-3 text-gray-400 hover:text-indigo-600">
+          <button onClick={generate} className="p-3 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
             <RefreshCw className="w-5 h-5" />
           </button>
         </div>
@@ -84,8 +84,8 @@ export default function PasswordGenerator() {
         <div className="space-y-4">
           <div>
             <div className="flex justify-between text-sm mb-2">
-              <label className="text-gray-700 font-medium">Length: {length}</label>
-              <span className="text-gray-500">{length} characters</span>
+              <label className="text-gray-700 dark:text-gray-300 font-medium">Length: {length}</label>
+              <span className="text-gray-500 dark:text-gray-400">{length} characters</span>
             </div>
             <input
               type="range"
@@ -104,7 +104,7 @@ export default function PasswordGenerator() {
               { label: 'Numbers (0-9)', checked: includeNumbers, onChange: setIncludeNumbers },
               { label: 'Symbols (!@#...)', checked: includeSymbols, onChange: setIncludeSymbols },
             ].map((opt) => (
-              <label key={opt.label} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
+              <label key={opt.label} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={opt.checked}
@@ -123,7 +123,7 @@ export default function PasswordGenerator() {
       </div>
 
       <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
+        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
       </div>
     </div>
   )

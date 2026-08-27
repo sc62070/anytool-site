@@ -23,27 +23,27 @@ export default function MarkdownToHtml() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-          <Code className="w-5 h-5 text-indigo-600" />
+        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
+          <Code className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900">Markdown to HTML</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Markdown to HTML</h1>
       </div>
-      <p className="text-gray-600 mb-8">Convert Markdown text to clean HTML code.</p>
+      <p className="text-gray-600 dark:text-gray-400 mb-8">Convert Markdown text to clean HTML code.</p>
 
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Markdown</label>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Markdown</label>
           <textarea
             value={markdown}
             onChange={(e) => setMarkdown(e.target.value)}
-            className="w-full h-80 p-4 border border-gray-300 rounded-xl text-sm font-mono resize-y focus:ring-2 focus:ring-indigo-500 outline-none"
+            className="w-full h-80 p-4 border border-gray-300 dark:border-gray-600 rounded-xl text-sm font-mono resize-y focus:ring-2 focus:ring-indigo-500 outline-none"
           />
         </div>
         <div>
           <div className="flex items-center justify-between mb-2">
-            <label className="text-sm font-medium text-gray-700">HTML Output</label>
+            <label className="text-sm font-medium text-gray-700 dark:text-gray-300">HTML Output</label>
             {html && (
-              <button onClick={handleCopy} className="text-sm text-indigo-600 hover:text-indigo-700 flex items-center gap-1">
+              <button onClick={handleCopy} className="text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 flex items-center gap-1">
                 {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copied ? 'Copied!' : 'Copy'}
               </button>
@@ -54,7 +54,7 @@ export default function MarkdownToHtml() {
               readOnly
               value={html}
               placeholder="HTML output will appear here..."
-              className="w-full h-80 p-4 border border-gray-300 rounded-xl text-sm font-mono bg-gray-50 resize-y"
+              className="w-full h-80 p-4 border border-gray-300 dark:border-gray-600 rounded-xl text-sm font-mono bg-gray-50 dark:bg-gray-700 resize-y"
             />
           </div>
         </div>
@@ -66,13 +66,13 @@ export default function MarkdownToHtml() {
 
       {html && (
         <div className="mt-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">Preview</label>
-          <div className="p-4 border border-gray-300 rounded-xl prose max-w-none" dangerouslySetInnerHTML={{ __html: html }} />
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Preview</label>
+          <div className="p-4 border border-gray-300 dark:border-gray-600 rounded-xl prose max-w-none" dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       )}
 
       <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
+        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
       </div>
     </div>
   )

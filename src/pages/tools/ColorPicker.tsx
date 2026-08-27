@@ -46,58 +46,58 @@ export default function ColorPicker() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-          <Palette className="w-5 h-5 text-indigo-600" />
+        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
+          <Palette className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900">Color Picker</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Color Picker</h1>
       </div>
-      <p className="text-gray-600 mb-8">Pick any color and get HEX, RGB, and HSL values.</p>
+      <p className="text-gray-600 dark:text-gray-400 mb-8">Pick any color and get HEX, RGB, and HSL values.</p>
 
-      <div className="bg-white rounded-xl border border-gray-200 p-8">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8">
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="flex flex-col items-center gap-4">
             <input
               type="color"
               value={hex}
               onChange={(e) => setHex(e.target.value)}
-              className="w-32 h-32 rounded-xl cursor-pointer border-2 border-gray-200"
+              className="w-32 h-32 rounded-xl cursor-pointer border-2 border-gray-200 dark:border-gray-700"
             />
-            <button onClick={handleRandom} className="text-sm text-indigo-600 hover:text-indigo-700 font-medium">
+            <button onClick={handleRandom} className="text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 font-medium">
               Random Color
             </button>
           </div>
 
           <div className="flex-1 w-full space-y-3">
-            <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-              <div className="w-10 h-10 rounded-lg border border-gray-200" style={{ backgroundColor: hex }} />
+            <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <div className="w-10 h-10 rounded-lg border border-gray-200 dark:border-gray-600" style={{ backgroundColor: hex }} />
               <div className="flex-1">
-                <div className="text-xs text-gray-500">HEX</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400">HEX</div>
                 <div className="font-mono text-sm font-medium">{hex.toUpperCase()}</div>
               </div>
-              <button onClick={() => handleCopy(hex.toUpperCase(), 'hex')} className="p-1.5 text-gray-400 hover:text-indigo-600">
+              <button onClick={() => handleCopy(hex.toUpperCase(), 'hex')} className="p-1.5 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
                 {copied === 'hex' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
 
             {rgb && (
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <div className="flex-1">
-                  <div className="text-xs text-gray-500">RGB</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">RGB</div>
                   <div className="font-mono text-sm font-medium">rgb({rgb.r}, {rgb.g}, {rgb.b})</div>
                 </div>
-                <button onClick={() => handleCopy(`rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, 'rgb')} className="p-1.5 text-gray-400 hover:text-indigo-600">
+                <button onClick={() => handleCopy(`rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`, 'rgb')} className="p-1.5 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
                   {copied === 'rgb' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
             )}
 
             {hsl && (
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <div className="flex-1">
-                  <div className="text-xs text-gray-500">HSL</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">HSL</div>
                   <div className="font-mono text-sm font-medium">hsl({hsl.h}, {hsl.s}%, {hsl.l}%)</div>
                 </div>
-                <button onClick={() => handleCopy(`hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`, 'hsl')} className="p-1.5 text-gray-400 hover:text-indigo-600">
+                <button onClick={() => handleCopy(`hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`, 'hsl')} className="p-1.5 text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
                   {copied === 'hsl' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </button>
               </div>
@@ -107,7 +107,7 @@ export default function ColorPicker() {
       </div>
 
       <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
+        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
       </div>
     </div>
   )

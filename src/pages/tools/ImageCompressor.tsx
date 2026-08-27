@@ -66,32 +66,32 @@ export default function ImageCompressor() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-          <Image className="w-5 h-5 text-indigo-600" />
+        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
+          <Image className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900">Image Compressor</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Image Compressor</h1>
       </div>
-      <p className="text-gray-600 mb-8">Compress images directly in your browser. No upload needed.</p>
+      <p className="text-gray-600 dark:text-gray-400 mb-8">Compress images directly in your browser. No upload needed.</p>
 
       {!original ? (
         <div
           onClick={() => fileInputRef.current?.click()}
-          className="border-2 border-dashed border-gray-300 rounded-xl p-16 text-center cursor-pointer hover:border-indigo-400 hover:bg-indigo-50/50 transition-colors"
+          className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-16 text-center cursor-pointer hover:border-indigo-400 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/20 transition-colors"
         >
           <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <p className="text-lg font-medium text-gray-700 mb-2">Click to upload an image</p>
-          <p className="text-sm text-gray-500">JPG, PNG, WebP supported</p>
+          <p className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Click to upload an image</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">JPG, PNG, WebP supported</p>
           <input ref={fileInputRef} type="file" accept="image/*" onChange={(e) => handleFile(e.target.files?.[0])} className="hidden" />
         </div>
       ) : (
         <div className="space-y-6">
-          <div className="flex items-center justify-between bg-white rounded-xl p-4 border border-gray-200">
-            <span className="text-sm text-gray-700 font-medium">{original.name}</span>
+          <div className="flex items-center justify-between bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+            <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">{original.name}</span>
             <button onClick={clear} className="text-gray-400 hover:text-red-500"><X className="w-5 h-5" /></button>
           </div>
 
           <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Quality: {quality}%</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Quality: {quality}%</label>
             <input type="range" min="10" max="100" value={quality} onChange={(e) => setQuality(Number(e.target.value))} className="w-full" />
           </div>
 
@@ -103,15 +103,15 @@ export default function ImageCompressor() {
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <div className="grid grid-cols-3 gap-4 mb-4 text-center">
                 <div>
-                  <div className="text-sm text-gray-500">Original</div>
-                  <div className="font-bold text-gray-900">{(originalSize / 1024).toFixed(1)} KB</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">Original</div>
+                  <div className="font-bold text-gray-900 dark:text-gray-100">{(originalSize / 1024).toFixed(1)} KB</div>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500">Compressed</div>
-                  <div className="font-bold text-indigo-600">{(compressedSize / 1024).toFixed(1)} KB</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">Compressed</div>
+                  <div className="font-bold text-indigo-600 dark:text-indigo-400">{(compressedSize / 1024).toFixed(1)} KB</div>
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500">Reduction</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">Reduction</div>
                   <div className="font-bold text-green-600">{reduction}%</div>
                 </div>
               </div>
@@ -127,7 +127,7 @@ export default function ImageCompressor() {
       )}
 
       <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
+        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
       </div>
     </div>
   )

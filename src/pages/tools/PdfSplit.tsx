@@ -73,39 +73,39 @@ export default function PdfSplit() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-          <FileText className="w-5 h-5 text-indigo-600" />
+        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
+          <FileText className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900">Split PDF</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Split PDF</h1>
       </div>
-      <p className="text-gray-600 mb-8">Extract specific pages from a PDF file. All processing happens in your browser.</p>
+      <p className="text-gray-600 dark:text-gray-400 mb-8">Extract specific pages from a PDF file. All processing happens in your browser.</p>
 
       {!file ? (
-        <div onClick={() => fileInputRef.current?.click()} className="border-2 border-dashed border-gray-300 rounded-xl p-16 text-center cursor-pointer hover:border-indigo-400 hover:bg-indigo-50/50 transition-colors">
+        <div onClick={() => fileInputRef.current?.click()} className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl p-16 text-center cursor-pointer hover:border-indigo-400 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/20 transition-colors">
           <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-          <p className="text-lg font-medium text-gray-700">Click to upload a PDF</p>
+          <p className="text-lg font-medium text-gray-700 dark:text-gray-300">Click to upload a PDF</p>
           <input ref={fileInputRef} type="file" accept=".pdf" onChange={(e) => handleFile(e.target.files?.[0])} className="hidden" />
         </div>
       ) : (
         <div className="space-y-6">
-          <div className="flex items-center justify-between bg-white rounded-xl p-4 border border-gray-200">
+          <div className="flex items-center justify-between bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
             <div>
-              <span className="text-sm text-gray-700 font-medium">{file.name}</span>
-              <span className="text-sm text-gray-500 ml-2">({totalPages} pages)</span>
+              <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">{file.name}</span>
+              <span className="text-sm text-gray-500 dark:text-gray-400 ml-2">({totalPages} pages)</span>
             </div>
             <button onClick={clear} className="text-gray-400 hover:text-red-500"><X className="w-5 h-5" /></button>
           </div>
 
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Page ranges to extract</label>
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Page ranges to extract</label>
             <input
               type="text"
               value={ranges}
               onChange={(e) => setRanges(e.target.value)}
               placeholder="e.g. 1-3, 5, 7-10"
-              className="w-full p-3 border border-gray-300 rounded-lg mb-2"
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg mb-2"
             />
-            <p className="text-xs text-gray-500">Use commas to separate ranges. Example: 1-3, 5, 7-10 extracts pages 1, 2, 3, 5, 7, 8, 9, 10.</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">Use commas to separate ranges. Example: 1-3, 5, 7-10 extracts pages 1, 2, 3, 5, 7, 8, 9, 10.</p>
           </div>
 
           <button onClick={extract} disabled={loading || !ranges.trim()} className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 disabled:opacity-50">
@@ -113,7 +113,7 @@ export default function PdfSplit() {
           </button>
 
           {extractedUrl && (
-            <div className="bg-white rounded-xl p-6 border border-gray-200 text-center">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 text-center">
               <p className="text-green-600 font-medium mb-4">Pages extracted successfully!</p>
               <button onClick={download} className="flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 mx-auto">
                 <Download className="w-5 h-5" /> Download Extracted PDF
@@ -124,7 +124,7 @@ export default function PdfSplit() {
       )}
 
       <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
+        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
       </div>
     </div>
   )

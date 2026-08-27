@@ -37,21 +37,21 @@ export default function TextDiff() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-          <GitCompare className="w-5 h-5 text-indigo-600" />
+        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
+          <GitCompare className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900">Text Diff Checker</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Text Diff Checker</h1>
       </div>
-      <p className="text-gray-600 mb-8">Compare two texts and see the differences highlighted.</p>
+      <p className="text-gray-600 dark:text-gray-400 mb-8">Compare two texts and see the differences highlighted.</p>
 
       <div className="grid md:grid-cols-2 gap-4 mb-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Original text</label>
-          <textarea value={textA} onChange={(e) => setTextA(e.target.value)} placeholder="Paste original text..." className="w-full h-48 p-3 border border-gray-300 rounded-xl resize-y text-sm" />
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Original text</label>
+          <textarea value={textA} onChange={(e) => setTextA(e.target.value)} placeholder="Paste original text..." className="w-full h-48 p-3 border border-gray-300 dark:border-gray-600 rounded-xl resize-y text-sm" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Modified text</label>
-          <textarea value={textB} onChange={(e) => setTextB(e.target.value)} placeholder="Paste modified text..." className="w-full h-48 p-3 border border-gray-300 rounded-xl resize-y text-sm" />
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Modified text</label>
+          <textarea value={textB} onChange={(e) => setTextB(e.target.value)} placeholder="Paste modified text..." className="w-full h-48 p-3 border border-gray-300 dark:border-gray-600 rounded-xl resize-y text-sm" />
         </div>
       </div>
 
@@ -60,8 +60,8 @@ export default function TextDiff() {
       </button>
 
       {showDiff && (
-        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-          <div className="bg-gray-50 px-4 py-2 border-b border-gray-200 text-sm font-medium text-gray-700">
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <div className="bg-gray-50 dark:bg-gray-700 px-4 py-2 border-b border-gray-200 dark:border-gray-600 text-sm font-medium text-gray-700 dark:text-gray-300">
             Differences ({diff.filter(d => d.type === 'added').length} additions, {diff.filter(d => d.type === 'removed').length} removals)
           </div>
           <div className="p-4 font-mono text-sm max-h-96 overflow-auto">
@@ -71,7 +71,7 @@ export default function TextDiff() {
                 className={`px-3 py-1 ${
                   line.type === 'added' ? 'bg-green-100 text-green-800' :
                   line.type === 'removed' ? 'bg-red-100 text-red-800 line-through' :
-                  'text-gray-700'
+                  'text-gray-700 dark:text-gray-300'
                 }`}
               >
                 <span className="inline-block w-4 text-gray-400 mr-2">
@@ -85,7 +85,7 @@ export default function TextDiff() {
       )}
 
       <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
+        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
       </div>
     </div>
   )

@@ -40,27 +40,27 @@ export default function QrCodeGenerator() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-          <QrCode className="w-5 h-5 text-indigo-600" />
+        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
+          <QrCode className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900">QR Code Generator</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">QR Code Generator</h1>
       </div>
-      <p className="text-gray-600 mb-8">Generate QR codes from any text or URL instantly.</p>
+      <p className="text-gray-600 dark:text-gray-400 mb-8">Generate QR codes from any text or URL instantly.</p>
 
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Text or URL</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Text or URL</label>
               <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Enter URL or text..."
-                className="w-full h-32 p-4 border border-gray-300 rounded-xl text-sm resize-y focus:ring-2 focus:ring-indigo-500 outline-none"
+                className="w-full h-32 p-4 border border-gray-300 dark:border-gray-600 rounded-xl text-sm resize-y focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Size: {size}px</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Size: {size}px</label>
               <input
                 type="range"
                 min="128"
@@ -77,13 +77,13 @@ export default function QrCodeGenerator() {
             </button>
           </div>
           <div className="flex items-center justify-center">
-            <canvas ref={canvasRef} className="border border-gray-200 rounded-xl" />
+            <canvas ref={canvasRef} className="border border-gray-200 dark:border-gray-700 rounded-xl" />
           </div>
         </div>
       </div>
 
       <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
+        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
       </div>
     </div>
   )

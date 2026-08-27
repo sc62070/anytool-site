@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 mt-auto">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-gray-400 mt-auto">
       <div className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
           <h3 className="text-white text-lg font-semibold mb-3">AnyTool.site</h3>

@@ -15,31 +15,31 @@ export default function TipCalculator() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
-          <Receipt className="w-5 h-5 text-indigo-600" />
+        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
+          <Receipt className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
         </div>
         <h1 className="text-3xl font-bold text-gray-900">Tip Calculator</h1>
       </div>
-      <p className="text-gray-600 mb-8">Calculate tips and split bills easily.</p>
+      <p className="text-gray-600 dark:text-gray-400 mb-8">Calculate tips and split bills easily.</p>
 
       <div className="grid md:grid-cols-2 gap-8">
-        <div className="bg-white rounded-xl border border-gray-200 p-6 space-y-5">
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Bill Amount</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Bill Amount</label>
             <div className="relative">
-              <span className="absolute left-3 top-3 text-gray-500">$</span>
+              <span className="absolute left-3 top-3 text-gray-500 dark:text-gray-400">$</span>
               <input
                 type="number"
                 value={bill}
                 onChange={(e) => setBill(e.target.value)}
                 placeholder="0.00"
-                className="w-full pl-8 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
+                className="w-full pl-8 p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Tip: {tipPercent}%</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Tip: {tipPercent}%</label>
             <input
               type="range"
               min="0"
@@ -53,7 +53,7 @@ export default function TipCalculator() {
                 <button
                   key={t}
                   onClick={() => setTipPercent(t)}
-                  className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${tipPercent === t ? 'bg-indigo-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+                  className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${tipPercent === t ? 'bg-indigo-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'}`}
                 >
                   {t}%
                 </button>
@@ -62,33 +62,33 @@ export default function TipCalculator() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Split Between: {people} {people === 1 ? 'person' : 'people'}</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Split Between: {people} {people === 1 ? 'person' : 'people'}</label>
             <div className="flex items-center gap-3">
-              <button onClick={() => setPeople(Math.max(1, people - 1))} className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-600 hover:bg-gray-200">-</button>
+              <button onClick={() => setPeople(Math.max(1, people - 1))} className="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-lg font-bold text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600">-</button>
               <span className="text-xl font-bold w-10 text-center">{people}</span>
-              <button onClick={() => setPeople(people + 1)} className="w-10 h-10 bg-gray-100 rounded-lg font-bold text-gray-600 hover:bg-gray-200">+</button>
+              <button onClick={() => setPeople(people + 1)} className="w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-lg font-bold text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600">+</button>
             </div>
           </div>
         </div>
 
         <div className="space-y-4">
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <div className="text-sm text-gray-500 mb-1">Tip Amount</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">Tip Amount</div>
             <div className="text-3xl font-bold text-green-600">${tipAmount.toFixed(2)}</div>
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-6">
-            <div className="text-sm text-gray-500 mb-1">Total</div>
+            <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">Total</div>
             <div className="text-3xl font-bold text-gray-900">${total.toFixed(2)}</div>
           </div>
-          <div className="bg-indigo-50 rounded-xl border border-indigo-200 p-6">
-            <div className="text-sm text-indigo-600 mb-1">Per Person</div>
+          <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-200 dark:border-indigo-800 p-6">
+            <div className="text-sm text-indigo-600 dark:text-indigo-400 mb-1">Per Person</div>
             <div className="text-3xl font-bold text-indigo-600">${perPerson.toFixed(2)}</div>
           </div>
         </div>
       </div>
 
       <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
+        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
       </div>
     </div>
   )
