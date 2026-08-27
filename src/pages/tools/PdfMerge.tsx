@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { FileText, Upload, Download, X, GripVertical, Plus } from 'lucide-react'
+import { FileText, Download, X, GripVertical, Plus } from 'lucide-react'
 import { PDFDocument } from 'pdf-lib'
 
 export default function PdfMerge() {
@@ -32,7 +32,7 @@ export default function PdfMerge() {
         copiedPages.forEach(page => merged.addPage(page))
       }
       const pdfBytes = await merged.save()
-      const blob = new Blob([pdfBytes], { type: 'application/pdf' })
+      const blob = new Blob([pdfBytes as Uint8Array<ArrayBuffer>], { type: 'application/pdf' })
       setMergedUrl(URL.createObjectURL(blob))
     } catch {
       alert('Error merging PDFs. Make sure all files are valid PDFs.')

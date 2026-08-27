@@ -47,7 +47,7 @@ export default function PdfSplit() {
       const copied = await newDoc.copyPages(srcDoc, pageIndices)
       copied.forEach(p => newDoc.addPage(p))
       const pdfBytes = await newDoc.save()
-      setExtractedUrl(URL.createObjectURL(new Blob([pdfBytes], { type: 'application/pdf' })))
+      setExtractedUrl(URL.createObjectURL(new Blob([pdfBytes as Uint8Array<ArrayBuffer>], { type: 'application/pdf' })))
     } catch {
       alert('Error splitting PDF. Check your page ranges.')
     }
