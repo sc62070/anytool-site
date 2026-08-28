@@ -27,7 +27,6 @@ export default function TypingSpeed() {
     setText(randomText)
     setUserInput('')
     setStartTime(null)
-    setEndTime(null)
     setWpm(0)
     setAccuracy(0)
     inputRef.current?.focus()
@@ -41,7 +40,6 @@ export default function TypingSpeed() {
 
     if (value === text) {
       const end = Date.now()
-      setEndTime(end)
       const timeMinutes = (end - (startTime || Date.now())) / 60000
       const wordsTyped = text.split(' ').length
       const calculatedWpm = Math.round(wordsTyped / timeMinutes)
