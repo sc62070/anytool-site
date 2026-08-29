@@ -79,6 +79,13 @@ const DnsLookup = lazy(() => import('./pages/tools/DnsLookup'))
 const HttpStatusChecker = lazy(() => import('./pages/tools/HttpStatusChecker'))
 const UserAgentParser = lazy(() => import('./pages/tools/UserAgentParser'))
 const SubnetCalculator = lazy(() => import('./pages/tools/SubnetCalculator'))
+const CssUnitConverter = lazy(() => import('./pages/tools/CssUnitConverter'))
+const HtmlToMarkdown = lazy(() => import('./pages/tools/HtmlToMarkdown'))
+const RegexGenerator = lazy(() => import('./pages/tools/RegexGenerator'))
+const JsonToCsv = lazy(() => import('./pages/tools/JsonToCsv'))
+const ColorBlindnessSimulator = lazy(() => import('./pages/tools/ColorBlindnessSimulator'))
+const AllTools = lazy(() => import('./pages/AllTools'))
+const PopularTools = lazy(() => import('./pages/PopularTools'))
 const Blog = lazy(() => import('./pages/blog/Blog'))
 const BlogPost = lazy(() => import('./pages/blog/BlogPost'))
 const About = lazy(() => import('./pages/About'))
@@ -180,6 +187,13 @@ export default function App() {
             <Route path="tools/http-status" element={t(<HttpStatusChecker />)} />
             <Route path="tools/user-agent" element={t(<UserAgentParser />)} />
             <Route path="tools/subnet-calculator" element={t(<SubnetCalculator />)} />
+            <Route path="tools/css-unit-converter" element={t(<CssUnitConverter />)} />
+            <Route path="tools/html-to-markdown" element={t(<HtmlToMarkdown />)} />
+            <Route path="tools/regex-generator" element={t(<RegexGenerator />)} />
+            <Route path="tools/json-to-csv" element={t(<JsonToCsv />)} />
+            <Route path="tools/color-blindness" element={t(<ColorBlindnessSimulator />)} />
+            <Route path="tools" element={<AllTools />} />
+            <Route path="popular" element={<PopularTools />} />
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogPost />} />
             <Route path="about" element={<About />} />

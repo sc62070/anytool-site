@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AnyTool.site Blog</title>
+    <link>https://anytool.site</link>
+    <description>Free online tools for developers, writers, and everyone. Tips, guides, and news.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://anytool.site/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Stop Guessing Your Word Count</title>
+      <link>https://anytool.site/blog/how-to-count-words-online</link>
+      <pubDate>Wed, 27 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Your 500-word essay is actually 380. Here's why that matters — and how to fix it in seconds.</description>
+    </item>
+    <item>
+      <title>Your JSON Is Broken. Here's Why.</title>
+      <link>https://anytool.site/blog/format-json-like-a-pro</link>
+      <pubDate>Tue, 26 Aug 2026 00:00:00 GMT</pubDate>
+      <description>That one missing comma just cost you 45 minutes. Let's fix that.</description>
+    </item>
+    <item>
+      <title>Why Your Website's Colors Are Driving People Away</title>
+      <link>https://anytool.site/blog/choose-the-right-colors</link>
+      <pubDate>Mon, 25 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Color psychology isn't woo-woo. It's science. And most websites are getting it wrong.</description>
+    </item>
+    <item>
+      <title>Your Password Is Terrible and You Know It</title>
+      <link>https://anytool.site/blog/create-strong-passwords</link>
+      <pubDate>Sun, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Stop using your pet's name. Here's how to actually protect yourself online.</description>
+    </item>
+    <item>
+      <title>Base64: The Encoding Trick Every Developer Should Know</title>
+      <link>https://anytool.site/blog/understanding-base64-encoding</link>
+      <pubDate>Sat, 23 Aug 2026 00:00:00 GMT</pubDate>
+      <description>It's not encryption. It's not compression. It's something weirder — and way more useful.</description>
+    </item>
+    <item>
+      <title>camelCase vs snake_case: The Holy War That Actually Matters</title>
+      <link>https://anytool.site/blog/text-case-conversion-guide</link>
+      <pubDate>Fri, 22 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Your variable naming convention says more about you than you think. Here's how to get it right.</description>
+    </item>
+    <item>
+      <title>Why URLs Use %20 Instead of Spaces (It's Stupid, But Necessary)</title>
+      <link>https://anytool.site/blog/url-encoding-explained</link>
+      <pubDate>Thu, 21 Aug 2026 00:00:00 GMT</pubDate>
+      <description>The internet has a formatting problem, and percent-encoding is the ugly fix that makes everything work.</description>
+    </item>
+    <item>
+      <title>Markdown Is the Best Thing That Happened to Documentation</title>
+      <link>https://anytool.site/blog/why-developers-love-markdown</link>
+      <pubDate>Wed, 20 Aug 2026 00:00:00 GMT</pubDate>
+      <description>In a world of bloated WYSIWYG editors, Markdown is the quiet genius that powers half the internet.</description>
+    </item>
+    <item>
+      <title>Why Designers Still Use Latin From 45 BC</title>
+      <link>https://anytool.site/blog/lorem-ipsum-for-designers</link>
+      <pubDate>Tue, 19 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Placeholder text has survived for 2,000 years. Here's why — and when to stop using it.</description>
+    </item>
+    <item>
+      <title>Hash Functions: The Invisible Security Layer You Use Every Day</title>
+      <link>https://anytool.site/blog/hash-functions-explained</link>
+      <pubDate>Mon, 18 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Every time you log in, download a file, or visit a website, hash functions are protecting you. Here's how.</description>
+    </item>
+    <item>
+      <title>Desktop Software Is Dying. Online Tools Are Winning.</title>
+      <link>https://anytool.site/blog/online-tools-vs-desktop-software</link>
+      <pubDate>Sun, 17 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Here's why more developers are ditching installed apps for browser-based tools.</description>
+    </item>
+    <item>
+      <title>10 Things Smart Developers Do Differently</title>
+      <link>https://anytool.site/blog/web-development-productivity-tips</link>
+      <pubDate>Sat, 16 Aug 2026 00:00:00 GMT</pubDate>
+      <description>These aren't motivational platitudes. They're actual techniques that save real hours.</description>
+    </item>
+    <item>
+      <title>UUIDs: The ID System That Scales</title>
+      <link>https://anytool.site/blog/why-uuids-matter-in-development</link>
+      <pubDate>Fri, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Auto-increment IDs seem fine until your database splits in two. UUIDs solve that problem.</description>
+    </item>
+    <item>
+      <title>QR Codes Are Actually Useful Now. Here's Why.</title>
+      <link>https://anytool.site/blog/qr-codes-for-business</link>
+      <pubDate>Thu, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <description>They survived the pandemic, they're everywhere, and they're not going away. Here's how to use them right.</description>
+    </item>
+    <item>
+      <title>You're Bad at Math. That's Okay. Here's Help.</title>
+      <link>https://anytool.site/blog/percentage-calculations-daily-life</link>
+      <pubDate>Wed, 13 Aug 2026 00:00:00 GMT</pubDate>
+      <description>From restaurant tips to shopping discounts — the percentage calculations you actually need.</description>
+    </item>
+    <item>
+      <title>Unix Time: The Number That Runs the Internet</title>
+      <link>https://anytool.site/blog/unix-timestamps-developers-guide</link>
+      <pubDate>Tue, 12 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Every API, database, and log file on the planet uses this one number format. Here's why.</description>
+    </item>
+    <item>
+      <title>How Much Should You Actually Tip?</title>
+      <link>https://anytool.site/blog/tip-calculator-guide</link>
+      <pubDate>Mon, 11 Aug 2026 00:00:00 GMT</pubDate>
+      <description>The math is easy. The social pressure is hard. Here's a guide that removes the guesswork.</description>
+    </item>
+    <item>
+      <title>Image to Base64: The Technique You Didn't Know You Needed</title>
+      <link>https://anytool.site/blog/image-to-base64-use-cases</link>
+      <pubDate>Sun, 10 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Embedding images as text strings sounds weird. But it's incredibly useful in the right situations.</description>
+    </item>
+    <item>
+      <title>CSS Gradients Don't Have to Be Hard</title>
+      <link>https://anytool.site/blog/css-gradient-guide</link>
+      <pubDate>Sat, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Three types, a few rules, and a generator. That's all you need.</description>
+    </item>
+    <item>
+      <title>Your JWT Token Isn't Secret. Here's What That Means.</title>
+      <link>https://anytool.site/blog/jwt-decoder-guide</link>
+      <pubDate>Sat, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Everyone can read your JWT payload. The signature only proves it hasn't been changed — it doesn't hide anything.</description>
+    </item>
+    <item>
+      <title>Flexbox: The Only Layout Guide You Need</title>
+      <link>https://anytool.site/blog/flexbox-cheatsheet</link>
+      <pubDate>Sat, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Forget memorizing properties. These patterns cover 90% of real-world use cases.</description>
+    </item>
+    <item>
+      <title>Your Password Security Is Probably Terrible</title>
+      <link>https://anytool.site/blog/password-security-guide</link>
+      <pubDate>Sat, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Most people use the same 3 passwords for everything. Here's how to fix that.</description>
+    </item>
+    <item>
+      <title>PDF Tools That Don't Require Uploading Your Files</title>
+      <link>https://anytool.site/blog/pdf-tools-guide</link>
+      <pubDate>Sat, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Most PDF tools send your documents to a server. Ours don't. Here's why that matters.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { blogPosts } from '../../data/blog'
-import { Calendar, Clock, ArrowLeft, ExternalLink, ArrowRight, Share2 } from 'lucide-react'
+import { Calendar, Clock, ArrowLeft, ExternalLink, ArrowRight, Share2, Twitter, Linkedin, Link2 } from 'lucide-react'
 import { marked } from 'marked'
 import { Helmet } from 'react-helmet-async'
 
@@ -70,10 +70,10 @@ export default function BlogPost() {
               <span className="text-gray-500 text-sm ml-3">{post.date}</span>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="p-2 text-gray-400 hover:text-[#3cffd0] transition-colors rounded-lg hover:bg-white/5">
-              <Share2 className="w-4 h-4" />
-            </button>
+          <div className="flex items-center gap-1">
+            <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`} target="_blank" rel="noopener noreferrer" className="p-2 text-gray-400 hover:text-[#1DA1F2] transition-colors rounded-lg hover:bg-white/5" title="Share on Twitter"><Twitter className="w-4 h-4" /></a>
+            <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`} target="_blank" rel="noopener noreferrer" className="p-2 text-gray-400 hover:text-[#0A66C2] transition-colors rounded-lg hover:bg-white/5" title="Share on LinkedIn"><Linkedin className="w-4 h-4" /></a>
+            <button onClick={() => { navigator.clipboard.writeText(window.location.href) }} className="p-2 text-gray-400 hover:text-[#3cffd0] transition-colors rounded-lg hover:bg-white/5" title="Copy link"><Link2 className="w-4 h-4" /></button>
           </div>
         </div>
       </div>

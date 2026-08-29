@@ -1,4 +1,4 @@
-import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash } from 'lucide-react'
+import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend, ScanText } from 'lucide-react'
 
 export interface Tool {
   name: string
@@ -83,4 +83,9 @@ export const tools: Tool[] = [
   { name: 'Subnet Calculator', slug: 'subnet-calculator', description: 'Calculate subnet info from CIDR notation.', icon: Network, category: 'Network' },
   { name: 'BMI Calculator', slug: 'bmi-calculator', description: 'Calculate your Body Mass Index.', icon: Heart, category: 'Calculator' },
   { name: 'Loan Calculator', slug: 'loan-calculator', description: 'Calculate monthly loan payments and interest.', icon: Calculator, category: 'Calculator' },
+  { name: 'CSS Unit Converter', slug: 'css-unit-converter', description: 'Convert between px, rem, em, and percentages.', icon: ArrowRightLeft, category: 'Design' },
+  { name: 'HTML to Markdown', slug: 'html-to-markdown', description: 'Convert HTML code to clean Markdown.', icon: ArrowDownToLine, category: 'Developer' },
+  { name: 'Regex Generator', slug: 'regex-generator', description: 'Describe what you need and get a regular expression.', icon: Blend, category: 'Developer' },
+  { name: 'JSON to CSV', slug: 'json-to-csv', description: 'Convert JSON data to CSV spreadsheet format.', icon: FileSpreadsheet, category: 'Developer' },
+  { name: 'Color Blindness Simulator', slug: 'color-blindness', description: 'See how your colors look to color blind users.', icon: Eye, category: 'Design' },
 ]

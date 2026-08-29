@@ -36,6 +36,8 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-1">
           {[
             { to: '/', label: 'Home' },
+            { to: '/tools', label: 'Tools' },
+            { to: '/popular', label: 'Popular' },
             { to: '/blog', label: 'Blog' },
             { to: '/about', label: 'About' },
             { to: '/contact', label: 'Contact' },
@@ -75,6 +77,8 @@ export default function Navbar() {
           <div className="flex flex-col px-4 py-3 space-y-1">
             {[
               { to: '/', label: 'Home' },
+              { to: '/tools', label: 'Tools' },
+              { to: '/popular', label: 'Popular' },
               { to: '/blog', label: 'Blog' },
               { to: '/about', label: 'About' },
               { to: '/contact', label: 'Contact' },

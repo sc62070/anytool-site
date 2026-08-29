@@ -39,8 +39,27 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3187370930413699" crossorigin="anonymous"></script>
 
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="AnyTool.site Blog" href="/feed.xml" />
+
     <!-- Plausible Analytics -->
     <script defer data-domain="anytool.site" src="https://plausible.io/js/script.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AnyTool.site",
+      "url": "https://anytool.site",
+      "description": "Free online tools for developers, writers, and everyone.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://anytool.site/?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 
     <title>AnyTool.site - Free Online Tools</title>
   </head>

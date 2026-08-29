@@ -266,6 +266,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Newsletter */}
+      <section className="max-w-4xl mx-auto px-4 py-16">
+        <div className="relative p-8 md:p-12 rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-600 overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:32px_32px]" />
+          <div className="relative text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Stay in the loop</h2>
+            <p className="text-white/70 mb-6 max-w-md mx-auto">Get notified when we add new tools. No spam, no tracking, just updates.</p>
+            <form onSubmit={e => { e.preventDefault(); alert('Thanks for subscribing! (This is a demo — no backend connected yet)') }} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <input type="email" required placeholder="your@email.com" className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 outline-none focus:ring-2 focus:ring-white/50" />
+              <button type="submit" className="px-6 py-3 bg-white text-violet-600 rounded-xl font-semibold hover:bg-gray-100 transition-colors shrink-0">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="max-w-6xl mx-auto px-4 py-24">
         <div className="text-center mb-16">
