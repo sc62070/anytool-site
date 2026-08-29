@@ -1,4 +1,4 @@
-import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend, ScanText } from 'lucide-react'
+import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend } from 'lucide-react'
 
 export interface Tool {
   name: string

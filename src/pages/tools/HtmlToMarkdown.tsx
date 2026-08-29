@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ToolLayout from '../../components/ToolLayout'
-import { Copy, Check, ArrowDownToLine } from 'lucide-react'
+import { Copy, Check, ArrowDownToLine, FileCode } from 'lucide-react'
 
 export default function HtmlToMarkdown() {
   const [input, setInput] = useState('<h1>Hello World</h1>\n<p>This is a <strong>paragraph</strong> with a <a href="https://example.com">link</a>.</p>\n<ul>\n  <li>Item 1</li>\n  <li>Item 2</li>\n</ul>')
@@ -48,7 +48,7 @@ export default function HtmlToMarkdown() {
   }
 
   return (
-    <ToolLayout title="HTML to Markdown" description="Convert HTML code to clean Markdown.">
+    <ToolLayout title="HTML to Markdown" description="Convert HTML code to clean Markdown." icon={FileCode}>
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">HTML Input</label>

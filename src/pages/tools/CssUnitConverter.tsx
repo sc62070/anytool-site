@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ToolLayout from '../../components/ToolLayout'
-import { ArrowRightLeft, Copy, Check } from 'lucide-react'
+import { ArrowRightLeft, Copy, Check, Ruler } from 'lucide-react'
 
 const units = ['px', 'rem', 'em', '%']
 const baseFontSize = 16
@@ -35,7 +35,7 @@ export default function CssUnitConverter() {
   }
 
   return (
-    <ToolLayout title="CSS Unit Converter" description="Convert between px, rem, em, and percentages.">
+    <ToolLayout title="CSS Unit Converter" description="Convert between px, rem, em, and percentages." icon={Ruler}>
       <div className="space-y-6">
         <div className="flex gap-3">
           <input type="number" value={value} onChange={e => setValue(e.target.value)} className="flex-1 px-4 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-lg font-mono text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-violet-500" placeholder="Enter value" />

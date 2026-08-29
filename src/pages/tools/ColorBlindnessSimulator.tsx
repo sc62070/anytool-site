@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ToolLayout from '../../components/ToolLayout'
-import { Eye } from 'lucide-react'
+import { Eye, EyeOff } from 'lucide-react'
 
 const colorBlindnessTypes = [
   { name: 'Normal Vision', filter: 'none' },
@@ -35,7 +35,7 @@ export default function ColorBlindnessSimulator() {
   `
 
   return (
-    <ToolLayout title="Color Blindness Simulator" description="See how your colors look to color blind users.">
+    <ToolLayout title="Color Blindness Simulator" description="See how your colors look to color blind users." icon={EyeOff}>
       <div className="space-y-6" dangerouslySetInnerHTML={{ __html: svgFilters }}>
         <div>
           <div className="flex items-center justify-between mb-3">

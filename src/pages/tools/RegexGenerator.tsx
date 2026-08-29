@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ToolLayout from '../../components/ToolLayout'
-import { Blend, Copy, Check } from 'lucide-react'
+import { Copy, Check, Blend } from 'lucide-react'
 
 const patterns = [
   { name: 'Email', regex: '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}', description: 'Matches email addresses' },
@@ -48,7 +48,7 @@ export default function RegexGenerator() {
   }
 
   return (
-    <ToolLayout title="Regex Generator" description="Describe what you need and get a regular expression.">
+    <ToolLayout title="Regex Generator" description="Describe what you need and get a regular expression." icon={Blend}>
       <div className="space-y-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Describe what you want to match</label>

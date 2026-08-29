@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ToolLayout from '../../components/ToolLayout'
-import { FileSpreadsheet, Copy, Check } from 'lucide-react'
+import { FileSpreadsheet, Copy, Check, Table } from 'lucide-react'
 
 export default function JsonToCsv() {
   const [input, setInput] = useState('[\n  {"name":"Alice","age":30,"city":"NYC"},\n  {"name":"Bob","age":25,"city":"LA"},\n  {"name":"Charlie","age":35,"city":"Chicago"}\n]')
@@ -38,7 +38,7 @@ export default function JsonToCsv() {
   }
 
   return (
-    <ToolLayout title="JSON to CSV" description="Convert JSON data to CSV spreadsheet format.">
+    <ToolLayout title="JSON to CSV" description="Convert JSON data to CSV spreadsheet format." icon={Table}>
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">JSON Input</label>
