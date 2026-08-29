@@ -226,7 +226,7 @@ export const blogPosts: BlogPost[] = [
       '- **UPPER_CASE**: `HELLO_WORLD` — constants, env vars',
       '',
       '### Why it matters more than you think',
-      ',
+      '',
       'Consistent casing makes code readable. When a JavaScript developer sees `PascalCase`, they immediately know it\'s a component. When a Python developer sees `snake_case`, they know it\'s a function. These signals matter.',
       '',
       '### The tool that saves you',
