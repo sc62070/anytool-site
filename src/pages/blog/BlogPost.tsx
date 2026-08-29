@@ -1,7 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
 import { blogPosts } from '../../data/blog'
-import { Calendar, Clock, ArrowLeft, ExternalLink, ArrowRight } from 'lucide-react'
+import { Calendar, Clock, ArrowLeft, ExternalLink, ArrowRight, Share2 } from 'lucide-react'
 import { marked } from 'marked'
+import { Helmet } from 'react-helmet-async'
 
 marked.setOptions({ breaks: true, gfm: true })
 
@@ -11,69 +12,141 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-20 text-center">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Post Not Found</h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">The blog post you're looking for doesn't exist.</p>
-        <Link to="/blog" className="text-violet-600 dark:text-violet-400 hover:text-violet-700">&larr; Back to Blog</Link>
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-6xl font-black text-white mb-4">404</h1>
+          <p className="text-gray-400 mb-6">Post not found.</p>
+          <Link to="/blog" className="text-[#3cffd0] hover:underline">Back to Blog</Link>
+        </div>
       </div>
     )
   }
 
   const html = marked.parse(post.content) as string
+  const related = blogPosts.filter(p => p.slug !== post.slug).slice(0, 3)
 
   return (
-    <article>
+    <article className="bg-[#0a0a0a] min-h-screen">
+      <Helmet>
+        <title>{post.title} - AnyTool.site Blog</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={post.image} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       {/* Hero */}
-      <section className="bg-gray-950 relative overflow-hidden">
-        <img src={post.image} alt={post.title} className="absolute inset-0 w-full h-full object-cover opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-gray-950/90 to-gray-950" />
-        <div className="relative max-w-3xl mx-auto px-4 py-20">
-          <Link to="/blog" className="inline-flex items-center text-sm text-gray-400 hover:text-white mb-6 transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-1" /> Back to Blog
-          </Link>
-          <div className="flex items-center gap-3 text-sm text-gray-400 mb-4">
-            <span className="bg-violet-500/20 text-violet-300 px-2.5 py-0.5 rounded-full text-xs font-medium">{post.category}</span>
-            <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{post.date}</span>
-            <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{post.readTime}</span>
+      <div className="relative h-[70vh] min-h-[500px] overflow-hidden">
+        <img src={post.image} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 to-transparent" />
+
+        <div className="absolute bottom-0 left-0 right-0">
+          <div className="max-w-4xl mx-auto px-4 pb-12">
+            <Link to="/blog" className="inline-flex items-center gap-2 text-[#3cffd0] text-sm font-medium mb-6 hover:underline no-underline">
+              <ArrowLeft className="w-4 h-4" /> All Posts
+            </Link>
+
+            <div className="flex items-center gap-3 mb-4">
+              <span className="bg-[#3cffd0] text-black text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wider">{post.category}</span>
+              <span className="text-gray-400 text-sm flex items-center gap-1"><Calendar className="w-3.5 h-3.5" />{post.date}</span>
+              <span className="text-gray-400 text-sm flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{post.readTime}</span>
+            </div>
+
+            <h1 className="text-4xl md:text-6xl font-black text-white leading-[0.95] tracking-tight mb-4">{post.title}</h1>
+            <p className="text-xl text-gray-400 max-w-2xl">{post.excerpt}</p>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight">{post.title}</h1>
-          <p className="text-lg text-gray-400 mt-3">{post.excerpt}</p>
-          <p className="text-sm text-gray-500 mt-2">By {post.author}</p>
         </div>
-      </section>
+      </div>
 
-      <div className="max-w-3xl mx-auto px-4 py-12">
-        <div className="prose prose-lg max-w-none prose-violet dark:prose-invert" dangerouslySetInnerHTML={{ __html: html }} />
+      {/* Author bar */}
+      <div className="border-b border-white/10">
+        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-[#3cffd0] rounded-full flex items-center justify-center text-black font-bold text-sm">{post.author.charAt(0)}</div>
+            <div>
+              <span className="text-[#3cffd0] text-sm font-medium">{post.author}</span>
+              <span className="text-gray-500 text-sm ml-3">{post.date}</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <button onClick={() => navigator.clipboard.writeText(window.location.href)} className="p-2 text-gray-400 hover:text-[#3cffd0] transition-colors rounded-lg hover:bg-white/5">
+              <Share2 className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </div>
 
+      {/* Article body */}
+      <div className="max-w-3xl mx-auto px-4 py-16">
+        <div className="prose-verge" dangerouslySetInnerHTML={{ __html: html }} />
+
+        {/* Related links */}
         {post.links.length > 0 && (
-          <div className="mt-8 bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-200 dark:border-gray-800">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Related Links</h3>
-            <ul className="space-y-2.5 list-none p-0 m-0">
+          <div className="mt-12 bg-white/5 border border-white/10 rounded-lg p-6">
+            <h3 className="text-white font-bold text-lg mb-4">Related Links</h3>
+            <div className="space-y-3">
               {post.links.map((link, i) => (
-                <li key={i}>
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 no-underline transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4 flex-shrink-0" />
-                    {link.label}
-                  </a>
-                </li>
+                <a key={i} href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#3cffd0] hover:underline no-underline text-sm">
+                  <ExternalLink className="w-4 h-4 flex-shrink-0" />
+                  {link.label}
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
         )}
 
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Try Our Tools</h3>
-          <p className="text-gray-500 dark:text-gray-400 mb-4">Put what you learned into practice with our free online tools.</p>
-          <Link to="/" className="inline-flex items-center gap-2 bg-violet-600 text-white px-6 py-2.5 rounded-xl font-medium hover:bg-violet-700 transition-colors no-underline">
-            Explore All Tools <ArrowRight className="w-4 h-4" />
+        {/* CTA */}
+        <div className="mt-16 pt-8 border-t border-white/10">
+          <Link to="/" className="inline-flex items-center gap-2 bg-[#3cffd0] text-black px-6 py-3 rounded-sm font-bold hover:bg-[#2de0b8] transition-colors no-underline text-sm uppercase tracking-wider">
+            Try Our Tools <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>
+
+      {/* Related articles */}
+      <div className="border-t border-white/10 bg-white/[0.02]">
+        <div className="max-w-6xl mx-auto px-4 py-16">
+          <h2 className="text-2xl font-black text-white mb-8 uppercase tracking-tight">More from the blog</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {related.map((r) => (
+              <Link key={r.slug} to={`/blog/${r.slug}`} className="group block no-underline">
+                <div className="relative h-48 overflow-hidden rounded-lg mb-4">
+                  <img src={r.image} alt={r.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                </div>
+                <span className="text-[#3cffd0] text-xs font-bold uppercase tracking-wider">{r.category}</span>
+                <h3 className="text-white font-bold text-lg mt-1 group-hover:text-[#3cffd0] transition-colors leading-tight">{r.title}</h3>
+                <span className="text-gray-500 text-sm mt-2 block">{r.date}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Inline styles for prose */}
+      <style>{`
+        .prose-verge { color: #d1d1d1; font-size: 1.125rem; line-height: 1.8; }
+        .prose-verge h2 { color: #fff; font-size: 1.75rem; font-weight: 900; margin: 2.5rem 0 1rem; letter-spacing: -0.02em; }
+        .prose-verge h3 { color: #fff; font-size: 1.35rem; font-weight: 700; margin: 2rem 0 0.75rem; }
+        .prose-verge p { margin: 1.25rem 0; }
+        .prose-verge a { color: #3cffd0; text-decoration: underline; text-underline-offset: 2px; }
+        .prose-verge a:hover { color: #2de0b8; }
+        .prose-verge ul, .prose-verge ol { margin: 1.25rem 0; padding-left: 1.5rem; }
+        .prose-verge li { margin: 0.5rem 0; }
+        .prose-verge ul { list-style: disc; }
+        .prose-verge ol { list-style: decimal; }
+        .prose-verge code { background: rgba(255,255,255,0.08); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.9em; color: #3cffd0; }
+        .prose-verge pre { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 1.25rem; overflow-x: auto; margin: 1.5rem 0; }
+        .prose-verge pre code { background: none; padding: 0; color: #d1d1d1; }
+        .prose-verge blockquote { border-left: 3px solid #3cffd0; padding-left: 1.25rem; margin: 1.5rem 0; color: #949494; font-style: italic; }
+        .prose-verge table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .prose-verge th, .prose-verge td { border: 1px solid rgba(255,255,255,0.1); padding: 0.75rem 1rem; text-align: left; }
+        .prose-verge th { background: rgba(255,255,255,0.05); color: #fff; font-weight: 700; }
+        .prose-verge strong { color: #fff; }
+        .prose-verge hr { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 2rem 0; }
+      `}</style>
     </article>
   )
 }
