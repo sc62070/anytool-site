@@ -1,0 +1,21 @@
+{
+  "name": "AnyTool.site",
+  "short_name": "AnyTool",
+  "description": "70+ free online tools for developers, writers, and everyone.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#7c3aed",
+  "background_color": "#030712",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

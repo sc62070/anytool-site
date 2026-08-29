@@ -69,6 +69,32 @@ export default function About() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="max-w-6xl mx-auto px-4 py-24">
+        <div className="text-center mb-12">
+          <span className="text-sm font-semibold text-violet-600 dark:text-violet-400 tracking-wider uppercase">FAQ</span>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mt-3 tracking-tight">Frequently Asked Questions</h2>
+        </div>
+        <div className="max-w-3xl mx-auto space-y-4">
+          {[
+            { q: 'Is AnyTool.site really free?', a: 'Yes. Every tool is 100% free with no usage limits, no premium tier, and no sign-up required.' },
+            { q: 'Is my data safe?', a: 'Absolutely. All processing happens in your browser. Nothing is ever sent to our servers. Your data never leaves your device.' },
+            { q: 'Can I use these tools on mobile?', a: 'Yes. Every tool is designed to work on phones, tablets, and desktops. Just open the site in any browser.' },
+            { q: 'How do you make money?', a: 'We don\'t. This is a side project built to be useful. There are no ads, no tracking, and no monetization.' },
+            { q: 'Can I suggest a new tool?', a: 'Yes! Visit our Tool Request page or contact us. We build tools based on what users ask for.' },
+            { q: 'Do I need to create an account?', a: 'No. Every tool works instantly without any account or sign-up.' },
+          ].map((faq) => (
+            <details key={faq.q} className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden group">
+              <summary className="px-6 py-4 cursor-pointer text-gray-900 dark:text-white font-medium list-none flex items-center justify-between">
+                {faq.q}
+                <span className="text-gray-400 group-open:rotate-180 transition-transform">▾</span>
+              </summary>
+              <div className="px-6 pb-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{faq.a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-4 py-24 text-center">
         <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">Have a suggestion?</h2>

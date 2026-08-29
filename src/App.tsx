@@ -83,6 +83,9 @@ import DnsLookup from './pages/tools/DnsLookup'
 import HttpStatusChecker from './pages/tools/HttpStatusChecker'
 import UserAgentParser from './pages/tools/UserAgentParser'
 import SubnetCalculator from './pages/tools/SubnetCalculator'
+import Changelog from './pages/Changelog'
+import NotFound from './pages/NotFound'
+import ToolRequest from './pages/ToolRequest'
 
 const t = (c: React.ReactNode) => <ToolTracker>{c}</ToolTracker>
 
@@ -172,6 +175,9 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="terms" element={<Terms />} />
+          <Route path="changelog" element={<Changelog />} />
+          <Route path="request" element={<ToolRequest />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </HelmetProvider>
