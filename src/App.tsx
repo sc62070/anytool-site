@@ -84,6 +84,16 @@ const HtmlToMarkdown = lazy(() => import('./pages/tools/HtmlToMarkdown'))
 const RegexGenerator = lazy(() => import('./pages/tools/RegexGenerator'))
 const JsonToCsv = lazy(() => import('./pages/tools/JsonToCsv'))
 const ColorBlindnessSimulator = lazy(() => import('./pages/tools/ColorBlindnessSimulator'))
+const MarkdownToPdf = lazy(() => import('./pages/tools/MarkdownToPdf'))
+const JsonPathTester = lazy(() => import('./pages/tools/JsonPathTester'))
+const JsonToXml = lazy(() => import('./pages/tools/JsonToXml'))
+const HtmlToJsx = lazy(() => import('./pages/tools/HtmlToJsx'))
+const CssMinifier = lazy(() => import('./pages/tools/CssMinifier'))
+const MarkdownTableGenerator = lazy(() => import('./pages/tools/MarkdownTableGenerator'))
+const PasswordManager = lazy(() => import('./pages/tools/PasswordManager'))
+const GitCommitGenerator = lazy(() => import('./pages/tools/GitCommitGenerator'))
+const VideoToGif = lazy(() => import('./pages/tools/VideoToGif'))
+const JsonToYaml = lazy(() => import('./pages/tools/JsonToYaml'))
 const AllTools = lazy(() => import('./pages/AllTools'))
 const PopularTools = lazy(() => import('./pages/PopularTools'))
 const Blog = lazy(() => import('./pages/blog/Blog'))
@@ -192,6 +202,16 @@ export default function App() {
             <Route path="tools/regex-generator" element={t(<RegexGenerator />)} />
             <Route path="tools/json-to-csv" element={t(<JsonToCsv />)} />
             <Route path="tools/color-blindness" element={t(<ColorBlindnessSimulator />)} />
+            <Route path="tools/markdown-to-pdf" element={t(<MarkdownToPdf />)} />
+            <Route path="tools/json-path" element={t(<JsonPathTester />)} />
+            <Route path="tools/json-to-xml" element={t(<JsonToXml />)} />
+            <Route path="tools/html-to-jsx" element={t(<HtmlToJsx />)} />
+            <Route path="tools/css-minifier" element={t(<CssMinifier />)} />
+            <Route path="tools/markdown-table" element={t(<MarkdownTableGenerator />)} />
+            <Route path="tools/password-manager" element={t(<PasswordManager />)} />
+            <Route path="tools/git-commit" element={t(<GitCommitGenerator />)} />
+            <Route path="tools/video-to-gif" element={t(<VideoToGif />)} />
+            <Route path="tools/json-to-yaml" element={t(<JsonToYaml />)} />
             <Route path="tools" element={<AllTools />} />
             <Route path="popular" element={<PopularTools />} />
             <Route path="blog" element={<Blog />} />

@@ -1,4 +1,4 @@
-import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend } from 'lucide-react'
+import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend, Lock, FileCode, Scan, Database, Film, List, Table, GitBranch, FileOutput, AudioLines } from 'lucide-react'
 
 export interface Tool {
   name: string
@@ -88,4 +88,14 @@ export const tools: Tool[] = [
   { name: 'Regex Generator', slug: 'regex-generator', description: 'Describe what you need and get a regular expression.', icon: Blend, category: 'Developer' },
   { name: 'JSON to CSV', slug: 'json-to-csv', description: 'Convert JSON data to CSV spreadsheet format.', icon: FileSpreadsheet, category: 'Developer' },
   { name: 'Color Blindness Simulator', slug: 'color-blindness', description: 'See how your colors look to color blind users.', icon: Eye, category: 'Design' },
+  { name: 'Markdown to PDF', slug: 'markdown-to-pdf', description: 'Convert Markdown to a downloadable PDF file.', icon: FileOutput, category: 'Text' },
+  { name: 'JSON Path Tester', slug: 'json-path', description: 'Test JSONPath expressions against JSON data.', icon: Database, category: 'Developer' },
+  { name: 'JSON to XML', slug: 'json-to-xml', description: 'Convert JSON data to XML format.', icon: ArrowRightLeft, category: 'Developer' },
+  { name: 'HTML to JSX', slug: 'html-to-jsx', description: 'Convert HTML to JSX for React components.', icon: FileCode, category: 'Developer' },
+  { name: 'CSS Minifier', slug: 'css-minifier', description: 'Minify CSS code to reduce file size.', icon: Minimize2, category: 'Developer' },
+  { name: 'Markdown Table Generator', slug: 'markdown-table', description: 'Generate Markdown tables from structured data.', icon: Table, category: 'Text' },
+  { name: 'Password Manager', slug: 'password-manager', description: 'Store and manage passwords locally in your browser.', icon: Lock, category: 'Security' },
+  { name: 'Git Commit Message Generator', slug: 'git-commit', description: 'Generate conventional commit messages from descriptions.', icon: GitBranch, category: 'Developer' },
+  { name: 'Video to GIF', slug: 'video-to-gif', description: 'Convert video clips to animated GIF files.', icon: Film, category: 'Generator' },
+  { name: 'JSON to YAML', slug: 'json-to-yaml', description: 'Convert JSON data to YAML format.', icon: ArrowRightLeft, category: 'Developer' },
 ]
