@@ -103,6 +103,14 @@ const PomodoroTimer = lazy(() => import('./pages/tools/PomodoroTimer'))
 const PortScanner = lazy(() => import('./pages/tools/PortScanner'))
 const PasswordGeneratorPro = lazy(() => import('./pages/tools/PasswordGeneratorPro'))
 const AsciiTable = lazy(() => import('./pages/tools/AsciiTable'))
+const PdfToImages = lazy(() => import('./pages/tools/PdfToImages'))
+const QrScanner = lazy(() => import('./pages/tools/QrScanner'))
+const SpreadsheetPreview = lazy(() => import('./pages/tools/SpreadsheetPreview'))
+const RandomColor = lazy(() => import('./pages/tools/RandomColor'))
+const UuidV5 = lazy(() => import('./pages/tools/UuidV5'))
+const HashChecker = lazy(() => import('./pages/tools/HashChecker'))
+const HtmlPreview = lazy(() => import('./pages/tools/HtmlPreview'))
+const CssSelector = lazy(() => import('./pages/tools/CssSelector'))
 const AllTools = lazy(() => import('./pages/AllTools'))
 const PopularTools = lazy(() => import('./pages/PopularTools'))
 const Blog = lazy(() => import('./pages/blog/Blog'))
@@ -230,6 +238,14 @@ export default function App() {
             <Route path="tools/port-scanner" element={t(<PortScanner />)} />
             <Route path="tools/password-generator-pro" element={t(<PasswordGeneratorPro />)} />
             <Route path="tools/ascii-table" element={t(<AsciiTable />)} />
+            <Route path="tools/pdf-to-images" element={t(<PdfToImages />)} />
+            <Route path="tools/qr-scanner" element={t(<QrScanner />)} />
+            <Route path="tools/spreadsheet-preview" element={t(<SpreadsheetPreview />)} />
+            <Route path="tools/random-color" element={t(<RandomColor />)} />
+            <Route path="tools/uuid-v5" element={t(<UuidV5 />)} />
+            <Route path="tools/hash-checker" element={t(<HashChecker />)} />
+            <Route path="tools/html-preview" element={t(<HtmlPreview />)} />
+            <Route path="tools/css-selector" element={t(<CssSelector />)} />
             <Route path="tools" element={<AllTools />} />
             <Route path="popular" element={<PopularTools />} />
             <Route path="blog" element={<Blog />} />

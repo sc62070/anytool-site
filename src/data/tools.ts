@@ -1,4 +1,4 @@
-import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend, Lock, FileCode, Database, Film, Table, GitBranch, FileOutput, Shuffle, ListFilter, Hourglass, Disc, Wifi } from 'lucide-react'
+import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend, Lock, FileCode, Database, Film, Table, GitBranch, FileOutput, Shuffle, ListFilter, Hourglass, Disc, Wifi, ScanLine, Rows3, CheckCircle } from 'lucide-react'
 
 export interface Tool {
   name: string
@@ -107,4 +107,12 @@ export const tools: Tool[] = [
   { name: 'Port Scanner', slug: 'port-scanner', description: 'Check common ports on any domain.', icon: Wifi, category: 'Network' },
   { name: 'Password Generator Pro', slug: 'password-generator-pro', description: 'Advanced password generator with history and strength analysis.', icon: KeyRound, category: 'Security' },
   { name: 'ASCII Table Generator', slug: 'ascii-table', description: 'Generate ASCII art tables from data.', icon: Table, category: 'Generator' },
+  { name: 'PDF to Images', slug: 'pdf-to-images', description: 'Extract PDF pages as PNG or JPG images.', icon: FileImage, category: 'Office' },
+  { name: 'QR Code Scanner', slug: 'qr-scanner', description: 'Scan QR codes from your camera or uploaded images.', icon: ScanLine, category: 'Office' },
+  { name: 'Spreadsheet Preview', slug: 'spreadsheet-preview', description: 'Preview CSV/TSV data as a styled spreadsheet.', icon: Rows3, category: 'Office' },
+  { name: 'Random Color Palette', slug: 'random-color', description: 'Generate beautiful random color palettes.', icon: Palette, category: 'Generator' },
+  { name: 'UUID v5 Generator', slug: 'uuid-v5', description: 'Generate deterministic UUID v5 from namespace and name.', icon: Zap, category: 'Generator' },
+  { name: 'Hash Checker', slug: 'hash-checker', description: 'Verify text against MD5, SHA-1, or SHA-256 hashes.', icon: CheckCircle, category: 'Security' },
+  { name: 'HTML Preview', slug: 'html-preview', description: 'Write HTML and see live rendered output.', icon: Code, category: 'Developer' },
+  { name: 'CSS Selector Generator', slug: 'css-selector', description: 'Generate CSS selectors for any HTML element.', icon: Blend, category: 'Developer' },
 ]
