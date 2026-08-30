@@ -55,7 +55,6 @@ export default function VideoToGif() {
       const tempCanvas = document.createElement('canvas')
       tempCanvas.width = width
       tempCanvas.height = height
-      const tempCtx = tempCanvas.getContext('2d')!
 
       // Simple GIF-like animation using WebP
       const blob = await new Promise<Blob>((resolve) => {

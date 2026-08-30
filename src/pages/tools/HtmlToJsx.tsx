@@ -19,7 +19,7 @@ function htmlToJsx(html: string): string {
   jsx = jsx.replace(/ frameborder="0"/g, ' frameBorder="0"')
   jsx = jsx.replace(/<(img|br|hr|input|meta|link)([^>]*?)\/?>/g, '<$1$2 />')
   jsx = jsx.replace(/<!--[\s\S]*?-->/g, '{/* $& */}')
-  jsx = jsx.replace(/style="([^"]*)"/g, (m, styles) => {
+  jsx = jsx.replace(/style="([^"]*)"/g, (_m, styles) => {
     const obj = styles.split(';').filter(Boolean).map((s: string) => {
       const [key, val] = s.split(':').map((p: string) => p.trim())
       const camel = key.replace(/-([a-z])/g, (_, c) => c.toUpperCase())

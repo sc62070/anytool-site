@@ -1,13 +1,12 @@
 import { useState, useCallback } from 'react'
 import ToolLayout from '../../components/ToolLayout'
-import { FileOutput, Copy, Check } from 'lucide-react'
+import { FileOutput } from 'lucide-react'
 
 export default function MarkdownToPdf() {
   const [input, setInput] = useState('# Hello World\n\nThis is a **bold** paragraph with `inline code`.\n\n## Section\n\n- Item 1\n- Item 2\n- Item 3\n\n> A blockquote for emphasis.\n\n```js\nconsole.log("Hello from Markdown!")\n```')
-  const [copied, setCopied] = useState(false)
 
   const htmlToPdf = useCallback(() => {
-    const md = input
+    const html = input
       .replace(/^### (.*$)/gm, '<h3>$1</h3>')
       .replace(/^## (.*$)/gm, '<h2>$1</h2>')
       .replace(/^# (.*$)/gm, '<h1>$1</h1>')

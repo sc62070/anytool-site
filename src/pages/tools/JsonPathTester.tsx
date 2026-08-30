@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ToolLayout from '../../components/ToolLayout'
-import { Database, Copy, Check } from 'lucide-react'
+import { Database } from 'lucide-react'
 
 function getJsonPath(obj: any, path: string): any {
   const parts = path.replace(/^\$\.?/, '').split(/\.|\[(\d+)\]/).filter(Boolean)

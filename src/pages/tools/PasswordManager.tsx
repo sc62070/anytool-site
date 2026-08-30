@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import ToolLayout from '../../components/ToolLayout'
-import { Lock, Eye, EyeOff, Plus, Trash2, Copy, Check } from 'lucide-react'
+import { Lock, Eye, Plus, Trash2, Copy, Check } from 'lucide-react'
 
 interface StoredPassword {
   id: string
