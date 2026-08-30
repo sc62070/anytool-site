@@ -94,6 +94,15 @@ const PasswordManager = lazy(() => import('./pages/tools/PasswordManager'))
 const GitCommitGenerator = lazy(() => import('./pages/tools/GitCommitGenerator'))
 const VideoToGif = lazy(() => import('./pages/tools/VideoToGif'))
 const JsonToYaml = lazy(() => import('./pages/tools/JsonToYaml'))
+const CsvViewer = lazy(() => import('./pages/tools/CsvViewer'))
+const WordFrequency = lazy(() => import('./pages/tools/WordFrequency'))
+const HtmlEntity = lazy(() => import('./pages/tools/HtmlEntity'))
+const RandomNumber = lazy(() => import('./pages/tools/RandomNumber'))
+const CountdownTimer = lazy(() => import('./pages/tools/CountdownTimer'))
+const PomodoroTimer = lazy(() => import('./pages/tools/PomodoroTimer'))
+const PortScanner = lazy(() => import('./pages/tools/PortScanner'))
+const PasswordGeneratorPro = lazy(() => import('./pages/tools/PasswordGeneratorPro'))
+const AsciiTable = lazy(() => import('./pages/tools/AsciiTable'))
 const AllTools = lazy(() => import('./pages/AllTools'))
 const PopularTools = lazy(() => import('./pages/PopularTools'))
 const Blog = lazy(() => import('./pages/blog/Blog'))
@@ -212,6 +221,15 @@ export default function App() {
             <Route path="tools/git-commit" element={t(<GitCommitGenerator />)} />
             <Route path="tools/video-to-gif" element={t(<VideoToGif />)} />
             <Route path="tools/json-to-yaml" element={t(<JsonToYaml />)} />
+            <Route path="tools/csv-viewer" element={t(<CsvViewer />)} />
+            <Route path="tools/word-frequency" element={t(<WordFrequency />)} />
+            <Route path="tools/html-entity" element={t(<HtmlEntity />)} />
+            <Route path="tools/random-number" element={t(<RandomNumber />)} />
+            <Route path="tools/countdown-timer" element={t(<CountdownTimer />)} />
+            <Route path="tools/pomodoro-timer" element={t(<PomodoroTimer />)} />
+            <Route path="tools/port-scanner" element={t(<PortScanner />)} />
+            <Route path="tools/password-generator-pro" element={t(<PasswordGeneratorPro />)} />
+            <Route path="tools/ascii-table" element={t(<AsciiTable />)} />
             <Route path="tools" element={<AllTools />} />
             <Route path="popular" element={<PopularTools />} />
             <Route path="blog" element={<Blog />} />

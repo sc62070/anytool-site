@@ -1,4 +1,4 @@
-import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend, Lock, FileCode, Database, Film, Table, GitBranch, FileOutput } from 'lucide-react'
+import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend, Lock, FileCode, Database, Film, Table, GitBranch, FileOutput, Shuffle, ListFilter, Hourglass, Disc, Wifi } from 'lucide-react'
 
 export interface Tool {
   name: string
@@ -98,4 +98,13 @@ export const tools: Tool[] = [
   { name: 'Git Commit Message Generator', slug: 'git-commit', description: 'Generate conventional commit messages from descriptions.', icon: GitBranch, category: 'Developer' },
   { name: 'Video to GIF', slug: 'video-to-gif', description: 'Convert video clips to animated GIF files.', icon: Film, category: 'Generator' },
   { name: 'JSON to YAML', slug: 'json-to-yaml', description: 'Convert JSON data to YAML format.', icon: ArrowRightLeft, category: 'Developer' },
+  { name: 'CSV Viewer', slug: 'csv-viewer', description: 'View CSV data as a sortable, filterable table.', icon: Table, category: 'Office' },
+  { name: 'Word Frequency Counter', slug: 'word-frequency', description: 'Count how often each word appears in your text.', icon: ListFilter, category: 'Text' },
+  { name: 'HTML Entity Encoder', slug: 'html-entity', description: 'Encode and decode HTML entities like &amp; and &lt;.', icon: Code, category: 'Developer' },
+  { name: 'Random Number Generator', slug: 'random-number', description: 'Generate random numbers within a range.', icon: Shuffle, category: 'Calculator' },
+  { name: 'Countdown Timer', slug: 'countdown-timer', description: 'Set a countdown timer with alarm sound.', icon: Hourglass, category: 'Calculator' },
+  { name: 'Pomodoro Timer', slug: 'pomodoro-timer', description: '25-minute focus timer with breaks.', icon: Disc, category: 'Calculator' },
+  { name: 'Port Scanner', slug: 'port-scanner', description: 'Check common ports on any domain.', icon: Wifi, category: 'Network' },
+  { name: 'Password Generator Pro', slug: 'password-generator-pro', description: 'Advanced password generator with history and strength analysis.', icon: KeyRound, category: 'Security' },
+  { name: 'ASCII Table Generator', slug: 'ascii-table', description: 'Generate ASCII art tables from data.', icon: Table, category: 'Generator' },
 ]
