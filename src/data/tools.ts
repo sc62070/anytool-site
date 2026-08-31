@@ -1,4 +1,4 @@
-import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend, Lock, FileCode, Database, Film, Table, GitBranch, FileOutput, Shuffle, ListFilter, Hourglass, Disc, Wifi, ScanLine, Rows3, CheckCircle } from 'lucide-react'
+import { Calculator, FileJson, Palette, KeyRound, Binary, CaseUpper, Link2, FileText, FileStack, Fingerprint, Zap, QrCode, Percent, Receipt, Clock, Code, Image, FileImage, Repeat, Replace, GitCompare, FileSpreadsheet, ArrowRightLeft, Calendar, Heart, Scissors, Paintbrush, Square, LayoutGrid, Droplets, Eye, Type, Radio, Timer, Trash2, Minimize2, RotateCw, Home, GraduationCap, TrendingUp, Infinity as InfinityIcon, Globe, Activity, Monitor, Network, Braces, Hash, ArrowDownToLine, Blend, Lock, FileCode, Database, Film, Table, GitBranch, FileOutput, Shuffle, ListFilter, Hourglass, Disc, Wifi, ScanLine, Rows3, CheckCircle, StickyNote, Contrast,Barcode, ShieldCheck, Volume2 } from 'lucide-react'
 
 export interface Tool {
   name: string
@@ -115,4 +115,9 @@ export const tools: Tool[] = [
   { name: 'Hash Checker', slug: 'hash-checker', description: 'Verify text against MD5, SHA-1, or SHA-256 hashes.', icon: CheckCircle, category: 'Security' },
   { name: 'HTML Preview', slug: 'html-preview', description: 'Write HTML and see live rendered output.', icon: Code, category: 'Developer' },
   { name: 'CSS Selector Generator', slug: 'css-selector', description: 'Generate CSS selectors for any HTML element.', icon: Blend, category: 'Developer' },
+  { name: 'Online Notepad', slug: 'notepad', description: 'Free online notepad with auto-save and word count.', icon: StickyNote, category: 'Text' },
+  { name: 'Color Converter', slug: 'color-converter', description: 'Convert between HEX, RGB, HSL, and CMYK color formats.', icon: Contrast, category: 'Design' },
+  { name: 'Barcode Generator', slug: 'barcode', description: 'Generate barcodes from text in multiple formats.', icon: Barcode, category: 'Generator' },
+  { name: 'Password Strength Analyzer', slug: 'password-analyzer', description: 'Analyze password strength and get improvement suggestions.', icon: ShieldCheck, category: 'Security' },
+  { name: 'Text to Speech', slug: 'text-to-speech', description: 'Convert text to natural-sounding speech using browser voice synthesis.', icon: Volume2, category: 'Text' },
 ]

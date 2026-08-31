@@ -111,6 +111,11 @@ const UuidV5 = lazy(() => import('./pages/tools/UuidV5'))
 const HashChecker = lazy(() => import('./pages/tools/HashChecker'))
 const HtmlPreview = lazy(() => import('./pages/tools/HtmlPreview'))
 const CssSelector = lazy(() => import('./pages/tools/CssSelector'))
+const Notepad = lazy(() => import('./pages/tools/Notepad'))
+const ColorConverter = lazy(() => import('./pages/tools/ColorConverter'))
+const BarcodeGenerator = lazy(() => import('./pages/tools/BarcodeGenerator'))
+const PasswordAnalyzer = lazy(() => import('./pages/tools/PasswordAnalyzer'))
+const TextToSpeech = lazy(() => import('./pages/tools/TextToSpeech'))
 const AllTools = lazy(() => import('./pages/AllTools'))
 const PopularTools = lazy(() => import('./pages/PopularTools'))
 const Blog = lazy(() => import('./pages/blog/Blog'))
@@ -246,6 +251,11 @@ export default function App() {
             <Route path="tools/hash-checker" element={t(<HashChecker />)} />
             <Route path="tools/html-preview" element={t(<HtmlPreview />)} />
             <Route path="tools/css-selector" element={t(<CssSelector />)} />
+            <Route path="tools/notepad" element={t(<Notepad />)} />
+            <Route path="tools/color-converter" element={t(<ColorConverter />)} />
+            <Route path="tools/barcode" element={t(<BarcodeGenerator />)} />
+            <Route path="tools/password-analyzer" element={t(<PasswordAnalyzer />)} />
+            <Route path="tools/text-to-speech" element={t(<TextToSpeech />)} />
             <Route path="tools" element={<AllTools />} />
             <Route path="popular" element={<PopularTools />} />
             <Route path="blog" element={<Blog />} />
