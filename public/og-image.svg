@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0a1e"/>
+      <stop offset="50%" style="stop-color:#1a1035"/>
+      <stop offset="100%" style="stop-color:#0d0820"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#d946ef"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="20%" cy="30%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="80%" cy="70%">
+      <stop offset="0%" style="stop-color:#d946ef;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#d946ef;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Glow effects -->
+  <ellipse cx="240" cy="190" rx="400" ry="300" fill="url(#glow1)"/>
+  <ellipse cx="960" cy="440" rx="350" ry="250" fill="url(#glow2)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.06" stroke="#7c3aed" stroke-width="0.5" fill="none">
+    <line x1="0" y1="0" x2="1200" y2="630"/>
+    <line x1="200" y1="0" x2="1200" y2="525"/>
+    <line x1="400" y1="0" x2="1200" y2="420"/>
+    <line x1="600" y1="0" x2="1200" y2="315"/>
+    <line x1="800" y1="0" x2="1200" y2="210"/>
+    <line x1="1000" y1="0" x2="1200" y2="105"/>
+    <line x1="0" y1="105" x2="1000" y2="630"/>
+    <line x1="0" y1="210" x2="800" y2="630"/>
+    <line x1="0" y1="315" x2="600" y2="630"/>
+    <line x1="0" y1="420" x2="400" y2="630"/>
+    <line x1="0" y1="525" x2="200" y2="630"/>
+  </g>
+
+  <!-- Decorative dots -->
+  <circle cx="100" cy="500" r="3" fill="#7c3aed" opacity="0.4"/>
+  <circle cx="150" cy="480" r="2" fill="#d946ef" opacity="0.3"/>
+  <circle cx="1050" cy="130" r="3" fill="#7c3aed" opacity="0.4"/>
+  <circle cx="1100" cy="150" r="2" fill="#d946ef" opacity="0.3"/>
+  <circle cx="1150" cy="100" r="4" fill="#7c3aed" opacity="0.2"/>
+
+  <!-- Tool icons hint -->
+  <g opacity="0.12" fill="none" stroke="url(#accent)" stroke-width="1.5">
+    <rect x="80" y="80" width="40" height="40" rx="8"/>
+    <rect x="140" y="80" width="40" height="40" rx="8"/>
+    <rect x="200" y="80" width="40" height="40" rx="8"/>
+    <rect x="80" y="500" width="40" height="40" rx="8"/>
+    <rect x="1080" y="500" width="40" height="40" rx="8"/>
+    <rect x="1020" y="500" width="40" height="40" rx="8"/>
+  </g>
+
+  <!-- Main content -->
+  <text x="600" y="260" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="white" letter-spacing="-2">AnyTool<span style="fill:url(#accent)">.site</span></text>
+
+  <!-- Accent line -->
+  <rect x="480" y="290" width="240" height="3" rx="1.5" fill="url(#accent)"/>
+
+  <!-- Tagline -->
+  <text x="600" y="345" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="400" fill="#a78bfa" letter-spacing="0.5">Free Online Tools for Developers</text>
+
+  <!-- Tool count badge -->
+  <g transform="translate(600, 395)">
+    <rect x="-100" y="-18" width="200" height="36" rx="18" fill="url(#accent)" opacity="0.15"/>
+    <rect x="-100" y="-18" width="200" height="36" rx="18" fill="none" stroke="url(#accent)" stroke-width="1" opacity="0.4"/>
+    <text x="0" y="6" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#d946ef">106+ Tools · 38 Posts</text>
+  </g>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="590" width="1200" height="4" fill="url(#accent)" opacity="0.6"/>
+</svg>
