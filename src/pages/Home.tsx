@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { tools } from '../data/tools'
 import { getViews } from '../data/views'
 import { getFavorites, toggleFavorite, getRecent } from '../data/userPrefs'
-import { blogPosts } from '../data/blog'
+import { blogPosts } from '../data/blog-meta'
 import { ArrowRight, Calendar, Clock, ArrowUpRight, Zap, Shield, Globe, Search, X, Star, History } from 'lucide-react'
 
 const categories = ['All', ...Array.from(new Set(tools.map(t => t.category)))]

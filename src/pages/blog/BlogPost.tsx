@@ -1,16 +1,30 @@
 import { useParams, Link } from 'react-router-dom'
-import { blogPosts } from '../../data/blog'
+import { blogPosts } from '../../data/blog-meta'
 import { Calendar, Clock, ArrowLeft, ExternalLink, ArrowRight, Link2 } from 'lucide-react'
 import { marked } from 'marked'
 import { Helmet } from 'react-helmet-async'
+import { useState, useEffect } from 'react'
 
 marked.setOptions({ breaks: true, gfm: true })
 
+async function getBlogContent(slug: string): Promise<string | null> {
+  const mod = await import('../../data/blog')
+  const post = mod.blogPosts.find((p) => p.slug === slug)
+  return post?.content || null
+}
+
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
-  const post = blogPosts.find((p) => p.slug === slug)
+  const meta = blogPosts.find((p) => p.slug === slug)
+  const [content, setContent] = useState<string | null>(null)
 
-  if (!post) {
+  useEffect(() => {
+    if (slug) {
+      getBlogContent(slug).then(setContent)
+    }
+  }, [slug])
+
+  if (!meta) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="text-center">
@@ -22,8 +36,17 @@ export default function BlogPost() {
     )
   }
 
-  const html = marked.parse(post.content) as string
+  const post = { ...meta, content: content || '' }
+  const html = content ? marked.parse(post.content) as string : ''
   const related = blogPosts.filter(p => p.slug !== post.slug).slice(0, 3)
+
+  if (!content) {
+    return (
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-[#3cffd0] border-t-transparent rounded-full animate-spin" />
+      </div>
+    )
+  }
 
   return (
     <article className="bg-[#0a0a0a] min-h-screen">

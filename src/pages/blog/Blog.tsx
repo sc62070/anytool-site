@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { blogPosts } from '../../data/blog'
+import { blogPosts } from '../../data/blog-meta'
 import { Calendar, Clock, ArrowRight } from 'lucide-react'
 
 export default function Blog() {
