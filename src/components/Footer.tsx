@@ -46,8 +46,7 @@ export default function Footer() {
         href="https://www.buymeacoffee.com/quizzment"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-20 left-6 z-40 flex items-center gap-2 bg-[#FFDD00] text-black px-4 py-2.5 rounded-full font-bold text-sm shadow-lg hover:scale-105 transition-transform no-underline"
-        style={{ fontFamily: 'Cookie, cursive', fontSize: '16px' }}
+        className="fixed bottom-20 right-6 z-40 flex items-center gap-2 bg-[#FFDD00] text-black px-4 py-2.5 rounded-full font-bold text-sm shadow-lg hover:scale-105 transition-transform no-underline"
       >
         ☕ Buy me a coffee
       </a>
