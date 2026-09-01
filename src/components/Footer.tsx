@@ -42,7 +42,7 @@ export default function Footer() {
       </div>
 
       {/* Buy Me a Coffee */}
-      <div className="fixed bottom-4 left-4 z-50">
+      <div className="fixed bottom-20 left-6 z-40">
         <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="quizzment" data-color="#FFDD00" data-emoji="☕" data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" async />
       </div>
     </footer>
