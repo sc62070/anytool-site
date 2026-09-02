@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet-async'
 function fakeBase(slug: string): number {
   let h = 0
   for (let i = 0; i < slug.length; i++) h = ((h << 5) - h + slug.charCodeAt(i)) | 0
-  return 1200 + (Math.abs(h) % 48000)
+  return 500000 + (Math.abs(h) % 500001)
 }
 
 export default function PopularTools() {
