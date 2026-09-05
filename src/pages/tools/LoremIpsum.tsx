@@ -30,7 +30,7 @@ export default function LoremIpsum() {
   }
 
   return (
-    <ToolLayout title="Lorem Ipsum Generator" description="Generate placeholder text for your designs and mockups." icon={FileStack} info="Our free online Lorem Ipsum generator creates placeholder text for your designs, mockups, and prototypes. Choose between paragraphs, sentences, or words and customize the count. Perfect for designers and developers who need sample content fast.">
+    <ToolLayout title="Lorem Ipsum Generator" description="Generate placeholder text for your designs and mockups." icon={FileStack} info="Instantly generate paragraphs, sentences, words, or titles of placeholder text for wireframes, prototypes, and mockups. Based on Cicero's classical Latin text, Lorem Ipsum has been the design industry's standard dummy text since the 1500s because its letter distribution closely resembles natural English, making layouts look realistic without distracting stakeholders with meaningful copy.">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -62,6 +62,19 @@ export default function LoremIpsum() {
           </div>
         )}
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Why Lorem Ipsum Still Works</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          Lorem Ipsum originates from a passage in Cicero's "De Finibus Bonorum et Malorum" (On the Ends of Good and Evil), written in 45 BC. The design industry adopted it in the 1960s because an unknown printer scrambled the text to create a type specimen book—and the random Latin turned out to be perfect placeholder content. The key advantage over using "Your text here" is that Lorem Ipsum preserves the natural letter frequency and word spacing of English. This means designers and clients can evaluate typography, line length, and visual hierarchy without being distracted by readable content that pulls attention away from layout decisions.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          Know when to stop using it, though. Lorem Ipsum is a layout tool, not a content strategy. As soon as real copy is available—headlines, product descriptions, legal disclaimers—replace the placeholder text immediately. Real content has variable word lengths, unexpected line breaks, and emotional tone that placeholder text cannot simulate. A three-word headline and a twenty-word headline will fundamentally change a layout. Early collaboration with copywriters prevents costly redesigns later.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          This generator supports paragraphs, sentences, individual words, and titles so you can match the placeholder to the component you are designing. Use title-length output for card components, sentence-length for meta descriptions, and full paragraphs for article layouts.
+        </p>
+      </section>
     </ToolLayout>
   )
 }

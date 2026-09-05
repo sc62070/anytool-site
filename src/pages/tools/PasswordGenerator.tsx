@@ -50,7 +50,7 @@ export default function PasswordGenerator() {
   const strength = getStrength()
 
   return (
-    <ToolLayout title="Password Generator" description="Generate strong, secure passwords with customizable options." icon={KeyRound} info="Our free online password generator creates strong, secure passwords using cryptographically random values. Customize length, character types, and complexity to meet any password requirement. All generation happens in your browser for maximum security.">
+    <ToolLayout title="Password Generator" description="Generate strong, secure passwords with customizable options." icon={KeyRound} info="Create cryptographically random passwords using the browser's crypto.getRandomValues() API—the same secure random source used by banking applications. Adjust length from 8 to 64 characters and toggle uppercase, lowercase, numbers, and symbols to meet any site's requirements. Every password is generated entirely in your browser and never leaves your device.">
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="flex items-center gap-3 mb-6">
           <input
@@ -113,6 +113,19 @@ export default function PasswordGenerator() {
           Generate Password
         </button>
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">What Makes a Password Secure?</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          Length is the single most important factor in password security. A 16-character password using only lowercase letters has more entropy than a 10-character password with every character type enabled. The NIST Special Publication 800-63B guidelines now recommend focusing on length over complexity—passphrases like "correct-horse-battery-staple" are both easier to remember and harder to crack than "P@55w0rD!". This tool defaults to 16 characters with all character types enabled, which gives you roughly 95 bits of entropy—enough to resist brute-force attacks for longer than the heat death of the universe.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          Never reuse passwords across sites. When one site gets breached (and they all eventually do), attackers automatically try those same credentials on your email, banking, and social media accounts—a technique called credential stuffing. Use a password manager to store unique passwords for every service, and let this generator create them. The strength indicator in this tool gives you quick feedback: aim for "Strong" on every password you generate.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          If a site limits you to 8 or 12 characters, that is a red flag about how they store passwords—it likely means they are using outdated hashing algorithms or storing them in plaintext. Consider using a different service when possible.
+        </p>
+      </section>
     </ToolLayout>
   )
 }

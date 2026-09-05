@@ -20,7 +20,7 @@ export default function WordCounter() {
   }
 
   return (
-    <ToolLayout title="Word Counter" description="Count words, characters, sentences, paragraphs, and estimate reading time." icon={Calculator} info="Our free online word counter helps you quickly count words, characters, sentences, and paragraphs in any text. Perfect for writers, students, and professionals who need to meet word count requirements. Simply paste your text and get instant results without any sign-up.">
+    <ToolLayout title="Word Counter" description="Count words, characters, sentences, paragraphs, and estimate reading time." icon={Calculator} info="Track your word count, character count, sentence count, and reading time in real time as you type or paste text. Ideal for staying within essay limits, hitting SEO meta description sweet spots (under 155 characters), or checking if a tweet fits the 280-character cap.">
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
@@ -50,6 +50,16 @@ export default function WordCounter() {
           {copied ? 'Copied!' : 'Copy Stats'}
         </button>
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Why Word Counting Matters</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          Most writing tasks have hard constraints. College essays have strict limits—exceed 650 words on the Common App and your essay gets truncated. SEO meta descriptions lose their punch past 155 characters because search engines truncate the snippet. Tweets that run over 280 characters simply cannot be posted. This tool gives you a live, accurate count so you never waste time rewriting at the last minute. The reading time estimate assumes an average of 200 words per minute, which is a solid baseline for web content where readers tend to skim.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          If you are crafting product descriptions or ad copy, tight character counts matter even more. Google Ads headlines cap at 30 characters and descriptions at 90. Social media bios on platforms like Instagram and LinkedIn hover around 150 characters. Paste your draft into this counter and iterate until you hit the sweet spot. The sentence and paragraph counts are also useful for checking readability—shorter sentences and well-spaced paragraphs keep readers engaged and improve accessibility.
+        </p>
+      </section>
     </ToolLayout>
   )
 }

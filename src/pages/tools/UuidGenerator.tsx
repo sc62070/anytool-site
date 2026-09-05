@@ -80,6 +80,21 @@ export default function UuidGenerator() {
       <div className="mt-8 text-center">
         <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">Why UUIDs Are Everywhere</h2>
+        <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 space-y-3">
+          <p>
+            UUIDs (Universally Unique Identifiers) solve a fundamental problem: generating IDs that are guaranteed to be unique without coordinating with a central authority. When you create a database record, an API request, or a session token, you need an identifier that won't collide with any other. UUID v4, which this tool generates, uses 122 bits of randomness to produce IDs like <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">550e8400-e29b-41d4-a716-446655440000</code> — the chance of a collision is roughly 1 in 2^122, which is effectively zero for any real application.
+          </p>
+          <p>
+            Developers use UUIDs as database primary keys instead of auto-incrementing integers for several reasons. UUIDs can be generated client-side before making an API call, enabling optimistic updates. They don't leak information about your data volume (a user seeing ID #4500 knows you have around 4,500 records). They work across distributed systems where multiple databases need to generate IDs independently without conflicts.
+          </p>
+          <p>
+            Beyond databases, UUIDs are essential for API request tracing — each request gets a unique ID that follows it through microservices, making debugging distributed systems possible. They're used for session tokens, file names in cloud storage, component keys in React lists, and anywhere you need a compact, unique string that won't collide. Generate a batch here and paste them directly into your test data, seed scripts, or configuration files.
+          </p>
+        </div>
+      </section>
     </div>
   )
 }

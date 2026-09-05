@@ -59,7 +59,7 @@ export default function ColorConverter() {
   }
 
   return (
-    <ToolLayout title="Color Converter" description="Convert between HEX, RGB, HSL, and CMYK color formats." icon={Contrast}>
+    <ToolLayout title="Color Converter" description="Convert between HEX, RGB, HSL, and CMYK color formats." icon={Contrast} info="Convert colors between HEX, RGB, HSL, and CMYK formats instantly. Use HEX for CSS shorthand, RGB when you need alpha transparency, HSL for intuitive color manipulation (lighter/darker/more saturated), and CMYK for print design where screen-to-print accuracy matters.">
       <div className="space-y-6">
         <div className="flex items-center gap-4">
           <input type="color" value={hex.length === 7 ? hex : '#7c3aed'} onChange={e => setHex(e.target.value)} className="w-20 h-20 rounded-xl cursor-pointer border-0" />
@@ -93,6 +93,22 @@ export default function ColorConverter() {
           <p className="text-xs text-violet-700 dark:text-violet-300 font-mono">--primary-color: {hex.length === 7 ? hex : '#7c3aed'};</p>
         </div>
       </div>
+      </div>
+
+      <section className="mt-8 mb-4">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">Choosing the Right Color Format</h2>
+        <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 space-y-3">
+          <p>
+            HEX is the go-to format for CSS and web design — it's compact, universally supported, and what you'll copy from design tools like Figma or Sketch. A six-digit hex code like <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">#7c3aed</code> represents red, green, and blue channels in base-16. When you need to add transparency, expand it to eight digits: <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">#7c3aed80</code> gives you 50% opacity.
+          </p>
+          <p>
+            RGB is better when you're programmatically manipulating colors — adjusting brightness, blending, or computing contrast ratios. HSL (Hue, Saturation, Lightness) is the most intuitive for humans: changing the lightness value makes a color lighter or darker without shifting its hue, and adjusting saturation makes it more vivid or muted. Designers use HSL to generate consistent color palettes by keeping hue and saturation fixed while varying lightness for backgrounds, text, and accents.
+          </p>
+          <p>
+            CMYK is essential for print design. Screens use additive RGB light, but printers use subtractive CMYK ink. A vibrant RGB blue can look muddy when printed because the CMYK gamut is smaller. Converting to CMYK before sending files to a printer helps you anticipate how colors will actually appear on paper, avoiding expensive reprints. This tool shows all four formats simultaneously so you can make informed decisions for both screen and print.
+          </p>
+        </div>
+      </section>
     </ToolLayout>
   )
 }

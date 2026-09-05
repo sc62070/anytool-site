@@ -35,7 +35,7 @@ export default function HashGenerator() {
   }
 
   return (
-    <ToolLayout title="Hash Generator" description="Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text." icon={Fingerprint} info="Our free online hash generator creates SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any input text. Perfect for developers, security professionals, and anyone who needs to verify data integrity. All hashing happens in your browser using the Web Crypto API.">
+    <ToolLayout title="Hash Generator" description="Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text." icon={Fingerprint} info="Compute SHA-1, SHA-256, SHA-384, and SHA-512 cryptographic hashes instantly using the browser's Web Crypto API. Perfect for verifying file integrity after downloads, comparing data fingerprints, understanding how password hashing works, or experimenting with the same algorithms that secure Bitcoin transactions and digital signatures.">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Input Text</label>
@@ -64,6 +64,19 @@ export default function HashGenerator() {
           </div>
         )}
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">How Hashing Works and Why It Matters</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          A cryptographic hash function takes any input—whether a single word or an entire file—and produces a fixed-length string that acts as a unique fingerprint. SHA-256 always outputs exactly 64 hexadecimal characters regardless of input size. Even a one-bit change to the input produces a completely different hash, which is why hashing is the foundation of file integrity verification. When you download software, the publisher often provides a SHA-256 checksum: compute the hash of your downloaded file and compare it to the published value. If they match, the file was not corrupted or tampered with in transit.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          Password storage relies on hashing, but plain SHA-256 is not enough. Modern systems add a unique random salt to each password before hashing and repeat the process thousands of times using purpose-built algorithms like bcrypt, scrypt, or Argon2. This tool lets you see raw SHA output to understand the concept, but never store passwords using un salted SHA hashes in production—rainbow table attacks can reverse them in seconds.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          SHA-256 is also the hashing algorithm used in Bitcoin's proof-of-work mining process and in constructing Merkle trees that verify transaction integrity across the blockchain. It is one of the most widely deployed cryptographic primitives in existence.
+        </p>
+      </section>
     </ToolLayout>
   )
 }

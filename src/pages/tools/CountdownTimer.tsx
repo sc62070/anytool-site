@@ -54,7 +54,7 @@ export default function CountdownTimer() {
   const progress = totalInput > 0 ? ((totalInput - display) / totalInput) * 100 : 0
 
   return (
-    <ToolLayout title="Countdown Timer" description="Set a countdown timer with alarm sound." icon={Hourglass}>
+    <ToolLayout title="Countdown Timer" description="Set a countdown timer with alarm sound." icon={Hourglass} info="Set a precise countdown with start, pause, and reset controls plus an audio alert when time expires. Great for the Pomodoro technique (25-minute work sessions with 5-minute breaks), cooking and baking, exercise interval training, presentation pacing, and study sessions with built-in time discipline.">
       <div className="space-y-6">
         <audio ref={audioRef} preload="auto">
           <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdH2DgH11bG15hYaDe3ZycHqIiYR8dXRyfImJhXx0c3N8iYmFfHRzc3yJiYV8dHNzfImJhXx0c3N8iYmFfHRzc3w=" type="audio/wav" />
@@ -104,6 +104,22 @@ export default function CountdownTimer() {
           </div>
         )}
       </div>
+      </div>
+
+      <section className="mt-8 mb-4">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">Productive Ways to Use a Countdown Timer</h2>
+        <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 space-y-3">
+          <p>
+            The Pomodoro Technique is the most popular productivity method built around timers: work for 25 minutes, break for 5 minutes, then take a longer 15-30 minute break after four cycles. This timer is perfect for that — set 25 minutes, focus deeply on one task, then let the alarm pull you out of flow for a restorative break. The technique works because it creates urgency (you only have 25 minutes) and prevents burnout (you're forced to rest regularly).
+          </p>
+          <p>
+            Cooking and baking demand precise timing. Bread dough needs exactly 10 minutes of kneading, pasta needs 8-12 minutes depending on thickness, and a soft-boiled egg is 6 minutes. Unlike a kitchen timer app, this runs in your browser, so it's handy when you're already at your desk following an online recipe. For exercise, interval training alternates between high-intensity work (30-60 seconds) and rest (15-30 seconds), and keeping accurate intervals is what makes the workout effective.
+          </p>
+          <p>
+            Presentations benefit enormously from timing discipline. A 5-minute lightning talk needs to stay under 300 seconds, and running over looks unprofessional. Set the timer before you start, and the progress bar gives you a visual cue of how much time remains without checking your watch. For meetings, a visible countdown creates shared accountability — everyone can see the time shrinking, which naturally keeps discussions focused and on-schedule.
+          </p>
+        </div>
+      </section>
     </ToolLayout>
   )
 }

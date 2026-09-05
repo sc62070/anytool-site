@@ -57,7 +57,7 @@ export default function RegexTester() {
   })()
 
   return (
-    <ToolLayout title="Regex Tester" description="Test regular expressions with live matching and highlighting." icon={Code} info="Our free online regex tester helps you test and debug regular expressions with live matching and syntax highlighting. Enter your pattern and test string to see matches instantly. Perfect for developers and data analysts who work with regex patterns.">
+    <ToolLayout title="Regex Tester" description="Test regular expressions with live matching and highlighting." icon={Code} info="Test and debug regular expressions with live match highlighting and group capture display. Validate common patterns for emails, phone numbers, and URLs, or build custom patterns with immediate visual feedback. Supports all standard regex flags including global, case-insensitive, and multiline modes.">
 
       <div className="space-y-4">
         <div className="flex gap-2">
@@ -119,6 +119,21 @@ export default function RegexTester() {
           </div>
         </div>
       )}
+
+      <section className="mt-8 mb-4">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">Mastering Regular Expressions</h2>
+        <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 space-y-3">
+          <p>
+            Regular expressions look like gibberish at first glance, but they're one of the most powerful tools in programming. A simple pattern like <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$</code> validates email addresses. <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">^\d{3}-\d{3}-\d{4}$</code> matches US phone numbers. <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">^https?:\/\/[^\s]+$</code> catches URLs. Learning just a handful of these common patterns covers 80% of real-world validation tasks.
+          </p>
+          <p>
+            The biggest debugging mistake is writing a complex pattern all at once. Build incrementally: get one part working, then add the next piece. Use the global flag (<code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">g</code>) to find all matches, not just the first. The test string panel lets you paste real data — actual form inputs, log files, or CSV rows — so you catch edge cases your pattern misses. Watch out for catastrophic backtracking: patterns with nested quantifiers like <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">(a+)+</code> can freeze your browser on certain inputs.
+          </p>
+          <p>
+            Once your pattern works here, copy it directly into your code. Most languages (JavaScript, Python, Go, Rust) use the same core regex syntax. The flags field lets you test with <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">i</code> for case-insensitive matching, <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">m</code> for multiline mode, and <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">s</code> to make dots match newlines — all before committing to your codebase.
+          </p>
+        </div>
+      </section>
     </ToolLayout>
   )
 }

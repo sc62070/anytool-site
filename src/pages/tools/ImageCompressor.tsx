@@ -64,7 +64,7 @@ export default function ImageCompressor() {
   const reduction = originalSize > 0 ? Math.round((1 - compressedSize / originalSize) * 100) : 0
 
   return (
-    <ToolLayout title="Image Compressor" description="Compress images directly in your browser. No upload needed." icon={Image} info="Our free online image compressor reduces JPG, PNG, and WebP file sizes without uploading to any server. All processing happens in your browser for complete privacy. Adjust quality settings and download compressed images instantly.">
+    <ToolLayout title="Image Compressor" description="Compress images directly in your browser. No upload needed." icon={Image} info="Shrink JPG, PNG, and WebP images without uploading them to any server—every compression happens locally in your browser using the Canvas API. Drag and drop a file, dial in your preferred quality level, and download the optimized version in seconds. Perfect for reducing page load times, meeting upload size limits, and saving bandwidth.">
 
       {!original ? (
         <div
@@ -118,6 +118,19 @@ export default function ImageCompressor() {
           )}
         </div>
       )}
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Why Image Compression Matters for Web Performance</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          Unoptimized images are the number one cause of slow websites. A single uncompressed hero image can easily exceed 2 MB, forcing visitors on mobile connections to wait seconds before your content appears. Google's Core Web Vitals measure Largest Contentful Paint (LCP), and heavy images directly hurt that metric—worse LCP means lower search rankings. Aim to keep individual images under 200 KB for above-the-fold content. This tool lets you dial in the exact quality level where the file size drops dramatically but the visual difference is imperceptible to the human eye.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          JPEG is best for photographs because its lossy compression exploits how human vision perceives color detail. PNG excels for graphics with sharp edges, text, or transparency, but its files are larger. WebP offers the best of both worlds—typically 25-35% smaller than JPEG at equivalent quality with full transparency support. If your target platform supports WebP, use it. For universal compatibility, JPEG at 80% quality is a reliable default for photos.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          All compression happens entirely in your browser using the Canvas API—no image data ever leaves your device. This means you can safely compress images containing sensitive information like screenshots, medical records, or proprietary designs without any privacy concerns.
+        </p>
+      </section>
     </ToolLayout>
   )
 }

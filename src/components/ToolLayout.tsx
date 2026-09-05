@@ -3,31 +3,27 @@ import { ArrowLeft } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
+interface FaqItem { q: string; a: string }
+
 interface ToolLayoutProps {
   title: string
   description: string
   icon: LucideIcon
   info?: string
+  faqs?: FaqItem[]
   children: React.ReactNode
 }
 
-const faqs: Record<string, { q: string; a: string }[]> = {}
+const defaultFaqs: FaqItem[] = [
+  { q: 'Is this tool free to use?', a: 'Yes. It is 100% free with no usage limits, no sign-up required, and no hidden fees.' },
+  { q: 'Is my data safe?', a: 'Absolutely. All processing happens directly in your browser. Nothing is ever sent to our servers, so your data stays completely private.' },
+  { q: 'Does it work on mobile?', a: 'Yes. This tool is fully responsive and works on phones, tablets, and desktops. Just open it in any modern browser.' },
+  { q: 'Do I need to create an account?', a: 'No. This tool works instantly without any account, sign-up, or login.' },
+]
 
-function getFaq(title: string) {
-  if (faqs[title]) return faqs[title]
-  const generic = [
-    { q: 'Is this tool free to use?', a: `Yes. ${title} is 100% free with no usage limits, no sign-up required, and no hidden fees.` },
-    { q: 'Is my data safe?', a: `Absolutely. All processing happens directly in your browser. Nothing is ever sent to our servers, so your data stays completely private.` },
-    { q: 'Does it work on mobile?', a: `Yes. ${title} is fully responsive and works on phones, tablets, and desktops. Just open it in any modern browser.` },
-    { q: 'Do I need to create an account?', a: `No. ${title} works instantly without any account, sign-up, or login.` },
-  ]
-  faqs[title] = generic
-  return generic
-}
-
-export default function ToolLayout({ title, description, icon: Icon, info, children }: ToolLayoutProps) {
+export default function ToolLayout({ title, description, icon: Icon, info, faqs: customFaqs, children }: ToolLayoutProps) {
   const canonical = `https://anytool.site/tools/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}`
-  const faqs = getFaq(title)
+  const faqs = customFaqs || defaultFaqs
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -38,6 +34,16 @@ export default function ToolLayout({ title, description, icon: Icon, info, child
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'Any',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    ...(customFaqs && {
+      faqPage: {
+        '@type': 'FAQPage',
+        mainEntity: customFaqs.map(f => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      },
+    }),
   }
 
   return (
@@ -79,23 +85,17 @@ export default function ToolLayout({ title, description, icon: Icon, info, child
         {children}
       </div>
 
-      {/* SEO content section */}
-      <div className="max-w-4xl mx-auto px-4 pb-8">
-        <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 md:p-8">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">About {title}</h2>
-          <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed space-y-4">
-            <p>
-              {info || `Our free online ${title.toLowerCase()} helps you ${description.toLowerCase().replace(/\.$/, '')}. It runs entirely in your browser, so your data never leaves your device. No uploads, no accounts, no waiting — just instant results.`}
-            </p>
-            <p>
-              {title} is designed for developers, writers, students, and professionals who need a quick, reliable tool without the hassle of installing software or creating accounts. Everything processes locally using modern web technologies, ensuring both speed and privacy.
-            </p>
-            <p>
-              Simply open the tool, input your data, and get results instantly. Whether you're working on a project, studying for an exam, or just need a quick conversion, {title} has you covered — completely free, on any device.
-            </p>
+      {/* SEO info section */}
+      {info && (
+        <div className="max-w-4xl mx-auto px-4 pb-8">
+          <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 md:p-8">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">About {title}</h2>
+            <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed space-y-4">
+              {info.split('\n').filter(Boolean).map((p, i) => <p key={i}>{p}</p>)}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* FAQ section */}
       <div className="max-w-4xl mx-auto px-4 pb-12">

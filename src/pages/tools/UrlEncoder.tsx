@@ -74,6 +74,21 @@ export default function UrlEncoder() {
       <div className="mt-8 text-center">
         <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">How URL Encoding Works</h2>
+        <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 space-y-3">
+          <p>
+            URLs can only contain a limited set of characters — letters, digits, and a few special characters like hyphens and underscores. Spaces, accents, Chinese characters, and symbols like <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">&amp;</code> or <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">=</code> have special meaning in URL syntax, so they break the URL if left unencoded. Percent-encoding replaces these characters with a <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">%</code> followed by two hex digits — a space becomes <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">%20</code>, and <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">@</code> becomes <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">%40</code>.
+          </p>
+          <p>
+            This matters most when building API request URLs. Query parameters like <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">?name=John Doe</code> will fail because the space breaks the URL structure. Encoded as <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">?name=John%20Doe</code>, it works perfectly. Most programming languages have built-in functions for this (<code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">encodeURIComponent</code> in JavaScript, <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">urllib.parse.quote</code> in Python), but when you're debugging a broken URL in a browser or inspecting logs, this tool lets you quickly encode or decode without writing code.
+          </p>
+          <p>
+            Developers frequently encounter encoding issues when working with internationalized domain names (IDN), OAuth callback URLs, or redirect URIs that contain special characters. Copy a problematic URL from your browser's address bar, paste it here, and decode it to see the original characters. Conversely, when constructing a URL programmatically, encode each parameter value to ensure it arrives at the server intact — especially when the values contain ampersands, equals signs, or non-ASCII characters.
+          </p>
+        </div>
+      </section>
     </div>
   )
 }

@@ -25,7 +25,7 @@ export default function TextCaseConverter() {
   }
 
   return (
-    <ToolLayout title="Text Case Converter" description="Convert text between uppercase, lowercase, title case, camelCase, and more." icon={CaseUpper} info="Our free online text case converter transforms your text into uppercase, lowercase, title case, camelCase, PascalCase, snake_case, and kebab-case instantly. Perfect for developers, writers, and content creators who need consistent text formatting.">
+    <ToolLayout title="Text Case Converter" description="Convert text between uppercase, lowercase, title case, camelCase, and more." icon={CaseUpper} info="Instantly convert text between uppercase, lowercase, Title Case, camelCase, PascalCase, snake_case, and kebab-case. Essential for developers normalizing variable names across languages, writers formatting titles, and anyone building SEO-friendly URLs or slugs.">
 
       <textarea
         value={text}
@@ -51,6 +51,21 @@ export default function TextCaseConverter() {
           </div>
         ))}
       </div>
+
+      <section className="mt-8 mb-4">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">Why Text Case Matters</h2>
+        <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 space-y-3">
+          <p>
+            Different programming languages enforce different naming conventions, and mixing them up makes code harder to read. Python and Ruby favor <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">snake_case</code> for variables and functions, while JavaScript and TypeScript use <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">camelCase</code>. Java and C# prefer <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">PascalCase</code> for class names. When you copy variable names from documentation in one language and paste them into another, this converter saves you from manually retyping everything.
+          </p>
+          <p>
+            For web developers, case conversion directly affects SEO. Search engines treat URL slugs as case-insensitive, but consistency matters for readability and sharing. Converting a page title like "How to Build a REST API" into <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">how-to-build-a-rest-api</code> using kebab-case creates clean, professional URLs. Similarly, when importing CSV data with column headers like "First Name" into a database, converting to snake_case (<code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">first_name</code>) aligns with most database naming conventions.
+          </p>
+          <p>
+            Writers and content creators also benefit from title case conversion. Different style guides (APA, MLA, Chicago) have their own rules for capitalizing titles, and this tool gives you a quick starting point. Paste in a headline, grab the title case version, then manually adjust minor words like "a," "the," or "and" that style guides typically leave lowercase.
+          </p>
+        </div>
+      </section>
     </ToolLayout>
   )
 }

@@ -30,7 +30,7 @@ export default function Base64Tool() {
   }
 
   return (
-    <ToolLayout title="Base64 Tool" description="Encode text to Base64 or decode Base64 to text." icon={Binary} info="Our free online Base64 tool lets you encode plain text to Base64 or decode Base64 strings back to text. Perfect for developers working with APIs, encoding data for URLs, or debugging. All processing happens in your browser for complete privacy.">
+    <ToolLayout title="Base64 Tool" description="Encode text to Base64 or decode Base64 to text." icon={Binary} info="Convert plain text to Base64 or decode Base64 back to its original form using the browser's native btoa() and atob() functions with proper Unicode handling. Essential for embedding images directly in CSS or HTML, encoding credentials for HTTP Basic Auth, constructing JWT tokens, and safely transmitting binary data through text-only channels like JSON APIs and email.">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="flex gap-2 mb-4">
@@ -91,6 +91,19 @@ export default function Base64Tool() {
           </button>
         </div>
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">When and Why You Would Use Base64</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          Base64 encodes binary data into a safe set of 64 ASCII characters so it can be transmitted over channels that only handle text. A classic use case is embedding small images directly in CSS using a data URI: instead of referencing an external file, you inline the Base64 string in url(data:image/png;base64,...). This eliminates an extra HTTP request and is useful for icons or decorative elements where the overhead of a separate network call is not worth it.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          JSON Web Tokens (JWTs) use Base64URL encoding for their header and payload segments. When debugging an unfamiliar token, paste each segment into this tool's decode mode to read the claims—expiry, issuer, and user ID become instantly visible. HTTP Basic Authentication also relies on Base64: the "Authorization: Basic dXNlcjpwYXNz" header is simply base64("user:pass"). While Base64 is not encryption (anyone can decode it), it is a standard way to package credentials for transport within the HTTP specification.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          A common mistake is treating Base64 as a security measure. It is purely an encoding scheme—obfuscation, not encryption. Never use Base64 alone to protect sensitive data; combine it with TLS encryption or proper cryptographic hashing instead.
+        </p>
+      </section>
     </ToolLayout>
   )
 }

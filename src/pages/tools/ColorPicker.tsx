@@ -44,7 +44,7 @@ export default function ColorPicker() {
   }, [])
 
   return (
-    <ToolLayout title="Color Picker" description="Pick any color and get HEX, RGB, and HSL values." icon={Palette} info="Our free online color picker lets you select any color and instantly get its HEX, RGB, and HSL values. Perfect for designers and developers who need precise color codes. Generate random colors and copy values with one click.">
+    <ToolLayout title="Color Picker" description="Pick any color and get HEX, RGB, and HSL values." icon={Palette} info="Select any color visually and instantly get its HEX, RGB, and HSL equivalents with a single click to copy. Essential for developers matching exact brand colors, designers checking WCAG contrast ratios, and anyone who needs precise color codes across CSS, design tools, and style guides.">
       <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-8">
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="flex flex-col items-center gap-4">
@@ -97,6 +97,19 @@ export default function ColorPicker() {
           </div>
         </div>
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Understanding Color Formats</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          HEX is the most common format in web development because it maps directly to RGB values—each pair of hex digits represents one channel from 00 to FF. CSS, SVG, and most front-end frameworks accept HEX natively. RGB is useful when you need to apply transparency with rgba() or when working in design tools like Figma and Sketch that expose individual channel sliders. HSL (Hue, Saturation, Lightness) is the most human-friendly format: you can create harmonious palettes by adjusting the hue while keeping saturation and lightness constant, which is nearly impossible to do by tweaking raw RGB values.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          Colors can look subtly different across browsers and operating systems due to varying gamma correction and color profile handling. Always test your palette on multiple devices if visual consistency matters. For accessibility, the Web Content Accessibility Guidelines (WCAG) require a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text. Use this picker to grab the exact color and then check it against your background in a contrast checker tool.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          When building a design system, start with your brand's primary color and derive tints and shades by adjusting the HSL lightness value. This produces a cohesive palette that feels intentional rather than randomly generated.
+        </p>
+      </section>
     </ToolLayout>
   )
 }

@@ -66,7 +66,7 @@ export default function UnitConverter() {
   const units = categories[category].units
 
   return (
-    <ToolLayout title="Unit Converter" description="Convert between length, weight, temperature, speed, and data units." icon={ArrowRightLeft} info="Our free online unit converter handles length, weight, temperature, speed, and data storage conversions. Switch between metric and imperial units instantly with real-time results. Perfect for students, engineers, and anyone who needs quick unit conversions.">
+    <ToolLayout title="Unit Converter" description="Convert between length, weight, temperature, speed, and data units." icon={ArrowRightLeft} info="Convert between metric and imperial units for length, weight, temperature, speed, and data storage with real-time results. Ideal for cooking (cups to milliliters), international travel (Fahrenheit to Celsius), engineering specs (inches to millimeters), and understanding file sizes (MB to GB).">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 space-y-4">
         <div>
@@ -103,6 +103,21 @@ export default function UnitConverter() {
           </div>
         </div>
       </div>
+
+      <section className="mt-8 mb-4">
+        <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">Practical Unit Conversions You'll Actually Use</h2>
+        <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 space-y-3">
+          <p>
+            Cooking is where unit conversion becomes a daily necessity. American recipes use cups and tablespoons, but most of the world measures by weight or milliliters. Converting 2 cups of flour to grams isn't straightforward because volume-to-weight depends on the ingredient's density — but this tool handles the volume side perfectly, converting cups to milliliters so you can use a kitchen scale set to grams. A standard US cup is about 236.6 ml, which is noticeably different from an Australian cup at 250 ml.
+          </p>
+          <p>
+            International travel makes temperature conversion essential. When a European weather forecast says it will be 35°C, that's 95°F — genuinely hot. When an American recipe says to bake at 350°F, that's about 177°C. The mental shortcut (double and add 30) gets you close, but for precision — especially in baking where 5 degrees matters — a real converter is better. Engineers face the same need when working with specifications across metric and imperial systems: one inch equals exactly 25.4 millimeters, and getting that wrong on a blueprint can be expensive.
+          </p>
+          <p>
+            The SI (International System of Units) exists precisely because inconsistent units caused disasters — most famously NASA's Mars Climate Orbiter, which burned up in 1999 because one team used imperial units while another used metric. Using standardized units prevents these costly miscommunications, but when you inevitably encounter mixed-unit data, this converter bridges the gap quickly.
+          </p>
+        </div>
+      </section>
     </ToolLayout>
   )
 }

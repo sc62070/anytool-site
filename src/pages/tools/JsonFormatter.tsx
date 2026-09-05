@@ -28,7 +28,7 @@ export default function JsonFormatter() {
   }
 
   return (
-    <ToolLayout title="JSON Formatter" description="Format, validate, minify, and beautify your JSON data." icon={FileJson} info="Our free online JSON formatter instantly beautifies and validates your JSON data. Paste raw JSON to get properly indented, readable output, or minify it for production use. Works entirely in your browser with no data sent to any server.">
+    <ToolLayout title="JSON Formatter" description="Format, validate, minify, and beautify your JSON data." icon={FileJson} info="Paste malformed, minified, or raw JSON and instantly get properly indented and validated output—or compress it back down for production. The tool catches syntax errors like trailing commas, missing quotes, and mismatched brackets the moment you click Format, making it indispensable for debugging API responses.">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Input</label>
@@ -75,6 +75,19 @@ export default function JsonFormatter() {
           Clear
         </button>
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">How to Use the JSON Formatter</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          One of the most common frustrations developers face is a malformed JSON response from an API. A single trailing comma or a missing closing bracket can break an entire request. Paste the raw response into the input pane and hit Format—the tool will either beautify the JSON with consistent two-space indentation or surface the exact error so you can fix it quickly. This is especially handy when you are copying JSON from browser DevTools, Slack messages, or terminal output, where formatting often gets mangled.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+          The Minify button strips all whitespace and newlines, shrinking the payload for production use. Smaller JSON files transfer faster over the network and reduce storage costs in databases. If you are comparing two JSON structures, format both and place them side by side—the clean indentation makes nested objects and arrays easy to scan visually. The tool validates on every keystroke, so you will know immediately if your edits introduced a syntax problem.
+        </p>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          Everything runs entirely in your browser. No data is ever sent to a server, which means you can safely format JSON containing API keys, passwords, or other sensitive information without worrying about privacy.
+        </p>
+      </section>
     </ToolLayout>
   )
 }
