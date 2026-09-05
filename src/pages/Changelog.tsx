@@ -79,7 +79,7 @@ export default function Changelog() {
       <section className="max-w-6xl mx-auto px-4 py-16 text-center">
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 tracking-tight">Want a new tool?</h2>
         <p className="text-gray-500 dark:text-gray-400 mb-6">Let us know what you'd like us to build next.</p>
-        <Link to="/tool-request" className="inline-flex items-center gap-2 bg-violet-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-violet-700 transition-colors no-underline">
+        <Link to="/request" className="inline-flex items-center gap-2 bg-violet-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-violet-700 transition-colors no-underline">
           Request a Tool
         </Link>
       </section>

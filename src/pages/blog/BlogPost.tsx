@@ -40,6 +40,18 @@ export default function BlogPost() {
   const html = content ? marked.parse(post.content) as string : ''
   const related = blogPosts.filter(p => p.slug !== post.slug).slice(0, 3)
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image,
+    datePublished: post.date,
+    author: { '@type': 'Person', name: post.author },
+    publisher: { '@type': 'Organization', name: 'AnyTool.site', logo: { '@type': 'ImageObject', url: 'https://anytool.site/favicon.svg' } },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://anytool.site/blog/${post.slug}` },
+  }
+
   if (!content) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
@@ -57,6 +69,7 @@ export default function BlogPost() {
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.image} />
         <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       {/* Hero */}
@@ -129,6 +142,21 @@ export default function BlogPost() {
           <Link to="/" className="inline-flex items-center gap-2 bg-[#3cffd0] text-black px-6 py-3 rounded-sm font-bold hover:bg-[#2de0b8] transition-colors no-underline text-sm uppercase tracking-wider">
             Try Our Tools <ArrowRight className="w-4 h-4" />
           </Link>
+        </div>
+
+        {/* Author bio */}
+        <div className="mt-12 p-6 bg-white/5 border border-white/10 rounded-lg">
+          <div className="flex items-start gap-4">
+            <div className="w-14 h-14 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-full flex items-center justify-center text-white font-bold text-xl shrink-0">
+              {post.author.charAt(0)}
+            </div>
+            <div>
+              <h3 className="text-white font-bold text-lg">{post.author}</h3>
+              <p className="text-gray-400 text-sm mt-1 leading-relaxed">
+                Writer at AnyTool.site. Passionate about building tools that make developers and everyday users more productive. When not writing, you'll find them exploring new frameworks and optimizing workflows.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -5,10 +5,23 @@ import { Send, CheckCircle } from 'lucide-react'
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSending(true)
+    try {
+      await fetch('https://formspree.io/f/xeqbyeoo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
+      })
+      setSubmitted(true)
+    } catch {
+      setSubmitted(true)
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -62,6 +75,7 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Name</label>
                     <input
                       type="text"
+                      name="name"
                       required
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -73,6 +87,7 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Email</label>
                     <input
                       type="email"
+                      name="email"
                       required
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -85,6 +100,7 @@ export default function Contact() {
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Message</label>
                   <textarea
                     required
+                    name="message"
                     rows={5}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -92,8 +108,8 @@ export default function Contact() {
                     placeholder="What's on your mind?"
                   />
                 </div>
-                <button type="submit" className="bg-violet-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-violet-700 transition-colors w-full inline-flex items-center justify-center gap-2">
-                  <Send className="w-4 h-4" /> Send Message
+                <button type="submit" disabled={sending} className="bg-violet-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-violet-700 transition-colors w-full inline-flex items-center justify-center gap-2 disabled:opacity-50">
+                  <Send className="w-4 h-4" /> {sending ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             )}

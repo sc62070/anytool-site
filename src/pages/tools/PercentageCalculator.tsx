@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Percent } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 export default function PercentageCalculator() {
   const [mode, setMode] = useState<'of' | 'is' | 'change'>('of')
@@ -31,14 +32,7 @@ export default function PercentageCalculator() {
   const current = labels[mode]
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <Percent className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Percentage Calculator</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Calculate percentages, percentage change, and more.</p>
+    <ToolLayout title="Percentage Calculator" description="Calculate percentages, percentage change, and more." icon={Percent} info="Our free online percentage calculator handles three common calculations: finding X% of Y, determining what percentage X is of Y, and computing percentage change between two values. Perfect for students, business professionals, and anyone who needs quick percentage math.">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="flex gap-2 mb-6">
@@ -85,10 +79,6 @@ export default function PercentageCalculator() {
           </div>
         )}
       </div>
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

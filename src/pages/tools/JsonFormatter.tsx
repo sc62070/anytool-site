@@ -28,7 +28,7 @@ export default function JsonFormatter() {
   }
 
   return (
-    <ToolLayout title="JSON Formatter" description="Format, validate, minify, and beautify your JSON data." icon={FileJson}>
+    <ToolLayout title="JSON Formatter" description="Format, validate, minify, and beautify your JSON data." icon={FileJson} info="Our free online JSON formatter instantly beautifies and validates your JSON data. Paste raw JSON to get properly indented, readable output, or minify it for production use. Works entirely in your browser with no data sent to any server.">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Input</label>

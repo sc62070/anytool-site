@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Code, Copy, Check } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 export default function RegexTester() {
   const [pattern, setPattern] = useState('')
@@ -57,14 +58,7 @@ export default function RegexTester() {
   })()
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <Code className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Regex Tester</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Test regular expressions with live matching and highlighting.</p>
+    <ToolLayout title="Regex Tester" description="Test regular expressions with live matching and highlighting." icon={Code} info="Our free online regex tester helps you test and debug regular expressions with live matching and syntax highlighting. Enter your pattern and test string to see matches instantly. Perfect for developers and data analysts who work with regex patterns.">
 
       <div className="space-y-4">
         <div className="flex gap-2">
@@ -126,10 +120,6 @@ export default function RegexTester() {
           </div>
         </div>
       )}
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FileStack, Copy, Check } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 const templates: Record<string, string> = {
   paragraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
@@ -30,14 +31,7 @@ export default function LoremIpsum() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <FileStack className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Lorem Ipsum Generator</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Generate placeholder text for your designs and mockups.</p>
+    <ToolLayout title="Lorem Ipsum Generator" description="Generate placeholder text for your designs and mockups." icon={FileStack} info="Our free online Lorem Ipsum generator creates placeholder text for your designs, mockups, and prototypes. Choose between paragraphs, sentences, or words and customize the count. Perfect for designers and developers who need sample content fast.">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -69,10 +63,6 @@ export default function LoremIpsum() {
           </div>
         )}
       </div>
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

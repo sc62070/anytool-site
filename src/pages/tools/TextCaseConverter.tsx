@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CaseUpper, Copy, Check } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 export default function TextCaseConverter() {
   const [text, setText] = useState('')
@@ -25,14 +26,7 @@ export default function TextCaseConverter() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <CaseUpper className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Text Case Converter</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Convert text between uppercase, lowercase, title case, camelCase, and more.</p>
+    <ToolLayout title="Text Case Converter" description="Convert text between uppercase, lowercase, title case, camelCase, and more." icon={CaseUpper} info="Our free online text case converter transforms your text into uppercase, lowercase, title case, camelCase, PascalCase, snake_case, and kebab-case instantly. Perfect for developers, writers, and content creators who need consistent text formatting.">
 
       <textarea
         value={text}
@@ -58,10 +52,6 @@ export default function TextCaseConverter() {
           </div>
         ))}
       </div>
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

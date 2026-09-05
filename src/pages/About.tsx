@@ -80,7 +80,7 @@ export default function About() {
             { q: 'Is AnyTool.site really free?', a: 'Yes. Every tool is 100% free with no usage limits, no premium tier, and no sign-up required.' },
             { q: 'Is my data safe?', a: 'Absolutely. All processing happens in your browser. Nothing is ever sent to our servers. Your data never leaves your device.' },
             { q: 'Can I use these tools on mobile?', a: 'Yes. Every tool is designed to work on phones, tablets, and desktops. Just open the site in any browser.' },
-            { q: 'How do you make money?', a: 'We don\'t. This is a side project built to be useful. There are no ads, no tracking, and no monetization.' },
+            { q: 'How do you make money?', a: 'We keep the site running through non-intrusive ads and optional support from users. We never sell your data or require paid subscriptions.' },
             { q: 'Can I suggest a new tool?', a: 'Yes! Visit our Tool Request page or contact us. We build tools based on what users ask for.' },
             { q: 'Do I need to create an account?', a: 'No. Every tool works instantly without any account or sign-up.' },
           ].map((faq) => (

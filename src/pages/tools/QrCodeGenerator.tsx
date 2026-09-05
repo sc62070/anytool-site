@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { QrCode, Download } from 'lucide-react'
 import QRCodeLib from 'qrcode'
+import ToolLayout from '../../components/ToolLayout'
 
 export default function QrCodeGenerator() {
   const [text, setText] = useState('https://anytool.site')
@@ -38,14 +39,7 @@ export default function QrCodeGenerator() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <QrCode className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">QR Code Generator</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Generate QR codes from any text or URL instantly.</p>
+    <ToolLayout title="QR Code Generator" description="Generate QR codes from any text or URL instantly." icon={QrCode} info="Our free online QR code generator creates high-quality QR codes from any text, URL, or data. Customize the size and download as PNG instantly. Perfect for sharing links, contact info, or Wi-Fi credentials. All generation happens in your browser.">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="grid md:grid-cols-2 gap-8">
@@ -81,10 +75,6 @@ export default function QrCodeGenerator() {
           </div>
         </div>
       </div>
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

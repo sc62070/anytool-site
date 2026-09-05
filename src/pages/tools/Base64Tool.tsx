@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Binary, Copy, Check } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 export default function Base64Tool() {
   const [input, setInput] = useState('')
@@ -30,14 +31,7 @@ export default function Base64Tool() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <Binary className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Base64 Tool</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Encode text to Base64 or decode Base64 to text.</p>
+    <ToolLayout title="Base64 Tool" description="Encode text to Base64 or decode Base64 to text." icon={Binary} info="Our free online Base64 tool lets you encode plain text to Base64 or decode Base64 strings back to text. Perfect for developers working with APIs, encoding data for URLs, or debugging. All processing happens in your browser for complete privacy.">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="flex gap-2 mb-4">
@@ -98,10 +92,6 @@ export default function Base64Tool() {
           </button>
         </div>
       </div>
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

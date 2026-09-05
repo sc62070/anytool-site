@@ -7,10 +7,11 @@ interface ToolLayoutProps {
   title: string
   description: string
   icon: LucideIcon
+  info?: string
   children: React.ReactNode
 }
 
-export default function ToolLayout({ title, description, icon: Icon, children }: ToolLayoutProps) {
+export default function ToolLayout({ title, description, icon: Icon, info, children }: ToolLayoutProps) {
   const canonical = `https://anytool.site/tools/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}`
 
   return (
@@ -50,6 +51,16 @@ export default function ToolLayout({ title, description, icon: Icon, children }:
       <div className="max-w-4xl mx-auto px-4 py-8">
         {children}
       </div>
+
+      {/* SEO info section */}
+      {info && (
+        <div className="max-w-4xl mx-auto px-4 pb-12">
+          <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
+            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">About {title}</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{info}</p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

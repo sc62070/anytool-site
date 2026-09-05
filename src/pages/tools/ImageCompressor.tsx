@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { Image, Upload, Download, X } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 export default function ImageCompressor() {
   const [original, setOriginal] = useState<File | null>(null)
@@ -64,14 +65,7 @@ export default function ImageCompressor() {
   const reduction = originalSize > 0 ? Math.round((1 - compressedSize / originalSize) * 100) : 0
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <Image className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Image Compressor</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Compress images directly in your browser. No upload needed.</p>
+    <ToolLayout title="Image Compressor" description="Compress images directly in your browser. No upload needed." icon={Image} info="Our free online image compressor reduces JPG, PNG, and WebP file sizes without uploading to any server. All processing happens in your browser for complete privacy. Adjust quality settings and download compressed images instantly.">
 
       {!original ? (
         <div
@@ -125,10 +119,6 @@ export default function ImageCompressor() {
           )}
         </div>
       )}
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

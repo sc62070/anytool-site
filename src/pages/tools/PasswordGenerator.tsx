@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { KeyRound, Copy, Check, RefreshCw } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 export default function PasswordGenerator() {
   const [length, setLength] = useState(16)
@@ -50,15 +51,7 @@ export default function PasswordGenerator() {
   const strength = getStrength()
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <KeyRound className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Password Generator</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Generate strong, secure passwords with customizable options.</p>
-
+    <ToolLayout title="Password Generator" description="Generate strong, secure passwords with customizable options." icon={KeyRound} info="Our free online password generator creates strong, secure passwords using cryptographically random values. Customize length, character types, and complexity to meet any password requirement. All generation happens in your browser for maximum security.">
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <div className="flex items-center gap-3 mb-6">
           <input
@@ -121,10 +114,6 @@ export default function PasswordGenerator() {
           Generate Password
         </button>
       </div>
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

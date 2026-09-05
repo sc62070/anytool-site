@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FileText } from 'lucide-react'
 import { marked } from 'marked'
+import ToolLayout from '../../components/ToolLayout'
 
 const sampleMarkdown = `# Hello World
 
@@ -40,14 +41,7 @@ export default function MarkdownPreview() {
   const html = marked.parse(markdown) as string
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <FileText className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Markdown Preview</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Write markdown on the left, see the rendered preview on the right.</p>
+    <ToolLayout title="Markdown Preview" description="Write markdown on the left, see the rendered preview on the right." icon={FileText} info="Our free online markdown preview tool lets you write and preview markdown in real-time with a side-by-side editor. Supports GitHub Flavored Markdown including code blocks, tables, and task lists. Perfect for writing documentation, README files, or blog posts.">
 
       <div className="grid md:grid-cols-2 gap-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
         <div>
@@ -66,10 +60,6 @@ export default function MarkdownPreview() {
           />
         </div>
       </div>
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

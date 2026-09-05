@@ -20,7 +20,7 @@ export default function WordCounter() {
   }
 
   return (
-    <ToolLayout title="Word Counter" description="Count words, characters, sentences, paragraphs, and estimate reading time." icon={Calculator}>
+    <ToolLayout title="Word Counter" description="Count words, characters, sentences, paragraphs, and estimate reading time." icon={Calculator} info="Our free online word counter helps you quickly count words, characters, sentences, and paragraphs in any text. Perfect for writers, students, and professionals who need to meet word count requirements. Simply paste your text and get instant results without any sign-up.">
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}

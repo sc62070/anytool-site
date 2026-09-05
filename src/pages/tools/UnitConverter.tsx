@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRightLeft } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 const categories = {
   Length: {
@@ -66,14 +67,7 @@ export default function UnitConverter() {
   const units = categories[category].units
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <ArrowRightLeft className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Unit Converter</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Convert between length, weight, temperature, speed, and data units.</p>
+    <ToolLayout title="Unit Converter" description="Convert between length, weight, temperature, speed, and data units." icon={ArrowRightLeft} info="Our free online unit converter handles length, weight, temperature, speed, and data storage conversions. Switch between metric and imperial units instantly with real-time results. Perfect for students, engineers, and anyone who needs quick unit conversions.">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 space-y-4">
         <div>
@@ -110,10 +104,6 @@ export default function UnitConverter() {
           </div>
         </div>
       </div>
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

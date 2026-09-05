@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Fingerprint, Copy, Check } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 async function hashMessage(message: string, algorithm: string): Promise<string> {
   const encoder = new TextEncoder()
@@ -35,14 +36,7 @@ export default function HashGenerator() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <Fingerprint className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Hash Generator</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text.</p>
+    <ToolLayout title="Hash Generator" description="Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text." icon={Fingerprint} info="Our free online hash generator creates SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any input text. Perfect for developers, security professionals, and anyone who needs to verify data integrity. All hashing happens in your browser using the Web Crypto API.">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Input Text</label>
@@ -71,10 +65,6 @@ export default function HashGenerator() {
           </div>
         )}
       </div>
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }

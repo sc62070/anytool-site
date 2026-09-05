@@ -44,7 +44,7 @@ export default function ColorPicker() {
   }, [])
 
   return (
-    <ToolLayout title="Color Picker" description="Pick any color and get HEX, RGB, and HSL values." icon={Palette}>
+    <ToolLayout title="Color Picker" description="Pick any color and get HEX, RGB, and HSL values." icon={Palette} info="Our free online color picker lets you select any color and instantly get its HEX, RGB, and HSL values. Perfect for designers and developers who need precise color codes. Generate random colors and copy values with one click.">
       <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 p-8">
         <div className="flex flex-col md:flex-row gap-8 items-center">
           <div className="flex flex-col items-center gap-4">

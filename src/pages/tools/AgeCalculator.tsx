@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Calendar } from 'lucide-react'
+import ToolLayout from '../../components/ToolLayout'
 
 export default function AgeCalculator() {
   const [birthdate, setBirthdate] = useState('')
@@ -36,14 +37,7 @@ export default function AgeCalculator() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center">
-          <Calendar className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-        </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Age Calculator</h1>
-      </div>
-      <p className="text-gray-600 dark:text-gray-400 mb-8">Calculate your exact age in years, months, and days.</p>
+    <ToolLayout title="Age Calculator" description="Calculate your exact age in years, months, and days." icon={Calendar} info="Our free online age calculator computes your exact age in years, months, and days from your date of birth. Also shows total days lived, total weeks, and days until your next birthday. Simple, accurate, and completely private.">
 
       <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Date of Birth</label>
@@ -81,10 +75,6 @@ export default function AgeCalculator() {
           </div>
         </div>
       )}
-
-      <div className="mt-8 text-center">
-        <Link to="/" className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 text-sm">&larr; Back to all tools</Link>
-      </div>
-    </div>
+    </ToolLayout>
   )
 }
