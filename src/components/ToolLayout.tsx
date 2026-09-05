@@ -11,8 +11,34 @@ interface ToolLayoutProps {
   children: React.ReactNode
 }
 
+const faqs: Record<string, { q: string; a: string }[]> = {}
+
+function getFaq(title: string) {
+  if (faqs[title]) return faqs[title]
+  const generic = [
+    { q: 'Is this tool free to use?', a: `Yes. ${title} is 100% free with no usage limits, no sign-up required, and no hidden fees.` },
+    { q: 'Is my data safe?', a: `Absolutely. All processing happens directly in your browser. Nothing is ever sent to our servers, so your data stays completely private.` },
+    { q: 'Does it work on mobile?', a: `Yes. ${title} is fully responsive and works on phones, tablets, and desktops. Just open it in any modern browser.` },
+    { q: 'Do I need to create an account?', a: `No. ${title} works instantly without any account, sign-up, or login.` },
+  ]
+  faqs[title] = generic
+  return generic
+}
+
 export default function ToolLayout({ title, description, icon: Icon, info, children }: ToolLayoutProps) {
   const canonical = `https://anytool.site/tools/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '')}`
+  const faqs = getFaq(title)
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: title,
+    description,
+    url: canonical,
+    applicationCategory: 'UtilityApplication',
+    operatingSystem: 'Any',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  }
 
   return (
     <div>
@@ -27,6 +53,7 @@ export default function ToolLayout({ title, description, icon: Icon, info, child
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={`${title} - AnyTool.site`} />
         <meta name="twitter:description" content={description} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
       {/* Tool header */}
@@ -52,15 +79,39 @@ export default function ToolLayout({ title, description, icon: Icon, info, child
         {children}
       </div>
 
-      {/* SEO info section */}
-      {info && (
-        <div className="max-w-4xl mx-auto px-4 pb-12">
-          <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-800 p-6">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">About {title}</h2>
-            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{info}</p>
+      {/* SEO content section */}
+      <div className="max-w-4xl mx-auto px-4 pb-8">
+        <div className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl border border-gray-200 dark:border-gray-800 p-6 md:p-8">
+          <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">About {title}</h2>
+          <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed space-y-4">
+            <p>
+              {info || `Our free online ${title.toLowerCase()} helps you ${description.toLowerCase().replace(/\.$/, '')}. It runs entirely in your browser, so your data never leaves your device. No uploads, no accounts, no waiting — just instant results.`}
+            </p>
+            <p>
+              {title} is designed for developers, writers, students, and professionals who need a quick, reliable tool without the hassle of installing software or creating accounts. Everything processes locally using modern web technologies, ensuring both speed and privacy.
+            </p>
+            <p>
+              Simply open the tool, input your data, and get results instantly. Whether you're working on a project, studying for an exam, or just need a quick conversion, {title} has you covered — completely free, on any device.
+            </p>
           </div>
         </div>
-      )}
+      </div>
+
+      {/* FAQ section */}
+      <div className="max-w-4xl mx-auto px-4 pb-12">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+        <div className="space-y-3">
+          {faqs.map((faq) => (
+            <details key={faq.q} className="bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden group">
+              <summary className="px-5 py-3.5 cursor-pointer text-gray-900 dark:text-white font-medium text-sm list-none flex items-center justify-between">
+                {faq.q}
+                <span className="text-gray-400 group-open:rotate-180 transition-transform text-xs">▾</span>
+              </summary>
+              <div className="px-5 pb-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{faq.a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
