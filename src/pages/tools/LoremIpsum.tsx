@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { FileStack, Copy, Check } from 'lucide-react'
 import ToolLayout from '../../components/ToolLayout'
 

@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { QrCode, Download } from 'lucide-react'
 import QRCodeLib from 'qrcode'
 import ToolLayout from '../../components/ToolLayout'
