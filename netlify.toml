@@ -1,4 +1,1 @@
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Redirects handled via public/_redirects

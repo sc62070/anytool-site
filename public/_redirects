@@ -1,0 +1,20 @@
+# Static assets — serve directly
+/assets/*  /assets/:splat  200
+
+# Tool routes (SPA fallback)
+/tools/*   /index.html     200
+
+# Blog routes (SPA fallback)
+/blog/*    /index.html     200
+
+# Other SPA pages
+/popular   /index.html     200
+/about     /index.html     200
+/contact   /index.html     200
+/privacy-policy  /index.html  200
+/terms     /index.html     200
+/changelog /index.html     200
+/request   /index.html     200
+
+# Everything else — proper 404
+/*         /404.html       404

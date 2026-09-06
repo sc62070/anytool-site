@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Home, Search, ArrowRight } from 'lucide-react'
+import { Helmet } from 'react-helmet-async'
 
 const popular = [
   { name: 'Word Counter', slug: 'word-counter' },
@@ -13,6 +14,10 @@ const popular = [
 export default function NotFound() {
   return (
     <div>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Page Not Found - AnyTool.site</title>
+      </Helmet>
       <section className="bg-gray-950 py-24 px-4 flex flex-col items-center justify-center text-center min-h-[70vh]">
         <h1 className="text-[8rem] md:text-[10rem] font-bold text-white leading-none tracking-tighter">404</h1>
         <p className="text-gray-400 text-xl mt-2 mb-2">This page doesn't exist.</p>
