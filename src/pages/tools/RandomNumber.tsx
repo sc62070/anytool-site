@@ -66,7 +66,6 @@ export default function RandomNumber() {
           </div>
         )}
       </div>
-      </div>
 
       <section className="mt-8 mb-4">
         <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">Understanding Random Numbers</h2>

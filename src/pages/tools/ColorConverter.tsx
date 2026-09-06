@@ -93,7 +93,6 @@ export default function ColorConverter() {
           <p className="text-xs text-violet-700 dark:text-violet-300 font-mono">--primary-color: {hex.length === 7 ? hex : '#7c3aed'};</p>
         </div>
       </div>
-      </div>
 
       <section className="mt-8 mb-4">
         <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">Choosing the Right Color Format</h2>

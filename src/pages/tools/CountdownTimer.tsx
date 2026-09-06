@@ -104,7 +104,6 @@ export default function CountdownTimer() {
           </div>
         )}
       </div>
-      </div>
 
       <section className="mt-8 mb-4">
         <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">Productive Ways to Use a Countdown Timer</h2>
