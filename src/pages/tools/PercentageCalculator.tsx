@@ -83,10 +83,10 @@ export default function PercentageCalculator() {
         <h2 className="text-lg font-bold text-gray-900 dark:text-white mt-8 mb-4">Everyday Percentage Calculations</h2>
         <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 space-y-3">
           <p>
-            "What's 20% of $85?" is the question you ask at every restaurant. The "X% of Y" mode handles tip calculations instantly — for a $85 bill, 20% is $17, making your total $102. The same mode works for calculating sale prices: a 30% discount on a $200 item means you're paying $140, saving $60. When shopping internationally, you can quickly figure out what a 15% tax adds to a purchase price without fumbling with mental math at the register.
+            "what{'\u2019'}s 20% of $85?" is the question you ask at every restaurant. The "X% of Y" mode handles tip calculations instantly — for a $85 bill, 20% is $17, making your total $102. The same mode works for calculating sale prices: a 30% discount on a $200 item means you{'\u2019'}re paying $140, saving $60. When shopping internationally, you can quickly figure out what a 15% tax adds to a purchase price without fumbling with mental math at the register.
           </p>
           <p>
-            The "% Change" mode is invaluable for tracking performance. If your portfolio went from $10,000 to $12,500, that's a 25% gain. If it dropped to $8,000, that's a 20% loss — and notice the asymmetry, which catches many people off guard. Students use this mode to calculate grade improvements: going from 65% to 82% on exams is a 26.2% improvement, useful context for applications and personal progress tracking.
+            The "% Change" mode is invaluable for tracking performance. If your portfolio went from $10,000 to $12,500, that{'\u2019'}s a 25% gain. If it dropped to $8,000, that{'\u2019'}s a 20% loss — and notice the asymmetry, which catches many people off guard. Students use this mode to calculate grade improvements: going from 65% to 82% on exams is a 26.2% improvement, useful context for applications and personal progress tracking.
           </p>
           <p>
             The "X is what % of Y" mode answers questions like "what percentage of my budget did I spend?" If you've used $340 of a $1,200 monthly budget, you've used 28.3%. This is also how you calculate win rates in games, completion percentages on projects, and market share figures in business reports. Each mode is simple on its own, but together they cover nearly every percentage question you'll encounter.
