@@ -85,7 +85,7 @@ export default function AgeCalculator() {
             The "total days lived" figure is surprisingly handy for milestone tracking. Some cultures celebrate 10,000-day milestones, and fitness challenges often track streaks in days. Parents frequently want to know exactly how many days old their child is for growth records. Project managers also use date-difference logic to calculate sprint durations, contract periods, and time-to-deadline withoutCalendar math headaches.
           </p>
           <p>
-            The "days until next birthday" count helps with party planning, but it{'\u2019'}s also practical for subscription renewals, warranty expirations, and annual reminder systems. If you{'\u2019'}re building an app that sends birthday discounts or age-restricted content verification, the same underlying calculation — subtracting dates and accounting for variable month lengths — is exactly what you need.
+            The "days until next birthday" count helps with party planning, but it is also practical for subscription renewals, warranty expirations, and annual reminder systems. If you are building an app that sends birthday discounts or age-restricted content verification, the same underlying calculation — subtracting dates and accounting for variable month lengths — is exactly what you need.
           </p>
         </div>
       </section>
